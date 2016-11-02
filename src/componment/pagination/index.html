@@ -8,8 +8,8 @@
                     <a @click="getRouteObj(item)" href="javascript:;" >{{item}}</a>
                 </li>
 
-                <li><a href="javascript:;" class="{{numberOfPage === 1 || params.page === numberOfPage ? 'disabled' : ''}}" @click.stop="getRouteObj(params.page-0+1)">下页</a></li>
-                <li><a href="javascript:;" class="{{numberOfPage === 1 || params.page === numberOfPage ? 'disabled' : ''}}" @click.stop="getRouteObj(numberOfPage)">尾页</a></li>
+                <li class="{{numberOfPage === 1 || params.page === numberOfPage ? 'disabled' : ''}}"><a href="javascript:;"  @click.stop="getRouteObj(params.page-0+1)">下页</a></li>
+                <li class="{{numberOfPage === 1 || params.page === numberOfPage ? 'disabled' : ''}}"><a href="javascript:;"  @click.stop="getRouteObj(numberOfPage)">尾页</a></li>
                 <li class="jump">
                     <a>跳到&nbsp;<input class="my-form-control" type="text" v-model="jump">&nbsp;页</a>
                 </li>
