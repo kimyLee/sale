@@ -19,21 +19,13 @@ export default {
     data () {
         return {
             saleDay:'',
-
             /**商品*/
             GoodInfo:{},
-            goodName:"",
-            goodPinyin:"",
-            danWei:"",   //danwei
-            count_jian:"",   //件數
+
             price:"",          //單價
             count_weight:"",  //数量
-            packFee:"",  //包装费
-            weightFee:"",  //过磅费
-            supplier:"",          //供货商
-            total:"",           //合计金额
+            count_jian:"",   //件數
 
-            goodCode:'',
             goodIDList:[],   //商品搜索列表
             goodNameList:[],   //商品搜索列表
             goodSpellList:[],   //商品搜索列表
@@ -100,8 +92,21 @@ export default {
 
         //添加商品
         add(){
+            var self = this;
             if(this.GoodInfo.name&&this.GoodInfo.spell&&this.price&&(this.count_jian||this.count_weight)
                 &&this.GoodInfo.supplier){
+                if(self.price===''||isNaN(self.price)){
+                    alert('单价需为数值且不能为空');
+                    return false;
+                }
+                if(self.count_jian===''||isNaN(self.count_jian)){
+                    alert('件数需为数值且不能为空');
+                    return false;
+                }
+                if(self.count_weight===''||isNaN(self.count_weight)){
+                    alert('数量需为数值且不能为空');
+                    return false;
+                }
                 this.selectGoodList.push({
                     'gId':this.GoodInfo.id,
                     "gSpell": this.GoodInfo.spell,
@@ -119,30 +124,42 @@ export default {
                 this.count_weight="";
                 this.price="";
 
+                //总件数，数量，价值
+                this.getTotal();
             }else {
                 alert('商品信息不全')
             }
         },
 
-        toggleSelect(index){
+        toggleSelect(item){
             //console.log('del',index)
-            if(this.selected!=item.id){
-                this.selected=item.id;
+            if(this.selected!=item.gId){
+                console.log(item);
+                this.selected=item.gId;
                 this.render(item);
             }else{
                 this.selected=-1;
             }
         },
-        render(index){
-            this.goodName=this.selectGoodList[index].goodName;
-            this.goodPinyin=this.selectGoodList[index].goodPinyin;
-            this.price=this.selectGoodList[index].price;
-            this.danWei=this.selectGoodList[index].danWei;
-            this.count_jian=this.selectGoodList[index].count_jian;
-            this.count_weight=this.selectGoodList[index].count_weight;
-            this.weightFee=this.selectGoodList[index].weightFee;
-            this.packFee=this.selectGoodList[index].packFee;
-            this.supplier=this.selectGoodList[index].supplier;
+        cancel(){
+            this.GoodInfo={};
+            this.price="";
+            this.count_jian="";
+            this.count_weight="";
+            this.selected=-1;
+        },
+        render(item){
+            console.log(item)
+            this.GoodInfo={
+                id:item.gId,
+                spell:item.gSpell,
+                name:item.gName,
+                unit:item.unit,
+                supplier:item.gSupplier
+            };
+            this.price=item.price;
+            this.count_jian=item.countUnit;
+            this.count_weight=item.count;
         },
         //删除商品
         del(){
@@ -150,34 +167,64 @@ export default {
                 this.selectGoodList.splice(this.delGoodList[i],1);
                 this.delGoodList=[]
             }
+            this.getTotal();
         },
         //修改商品
         correct(){
             if(this.GoodInfo.name&&this.GoodInfo.spell&&this.price&&(this.count_jian||this.count_weight)
                 &&this.GoodInfo.supplier){
-                this.selectGoodList[this.selected]={
-                    'id':this.GoodInfo.id,
-                    "spell": this.GoodInfo.spell,
-                    "name": this.GoodInfo.name,
+                this.selectGoodList[this.selected] = {
+                    'gId':this.GoodInfo.id,
+                    "gSpell": this.GoodInfo.spell,
+                    "gName": this.GoodInfo.name,
                     "unit": this.GoodInfo.unit,
-                    "weighFee": this.GoodInfo.weighFee,
-                    "packFee": this.GoodInfo.packFee,
-                    "supplier":  this.GoodInfo.supplier,
-                    price:this.price,
-                    count_jian:this.count_jian,
-                    count_weight:this.count_weight,
 
-                    //todo:计算
-                    total:this.getGoodTotal(this.GoodInfo.unit,this.price,this.count_jian,this.count_weight,this.GoodInfo.packFee,this.GoodInfo.weighFee)
+                    "gSupplier":  this.GoodInfo.supplier,
+                    price:this.price,
+                    countUnit:this.count_jian,
+                    count:this.count_weight
+
                 };
 
-
+                this.getTotal();
             }else {
                 alert('商品信息不全')
             }
         },
-        inMoney(){
+        getTotal(){
+            let total=0;
+            let count=0;   // 数量
+            let unit=0;   //件数
+            for(let i = this.selectGoodList.length; i-- ; ){
+                count=count+(this.selectGoodList[i].count-0);
+                unit=unit+(this.selectGoodList[i].countUnit-0);
+                if(this.selectGoodList[i].unit=='件'){
+                    total=total+this.selectGoodList[i].price*this.selectGoodList[i].countUnit ;
+                }else if(this.selectGoodList[i].unit=='公斤'){
+                    total=total+this.selectGoodList[i].price*this.selectGoodList[i].count
+                }
+            }
+            this.totalVal=total;
+            this.totalWeight=count;
+            this.totalCount=unit;
 
+        },
+        inRecord(){
+            var self = this;
+            console.log(self.saleDay);
+            api.addInGoods(JSON.stringify({
+                "type": 1,
+                "date": self.saleDay,
+                "totalCountUnit": self.totalCount,
+                "totalCount": self.totalWeight,
+                "carNum": self.carNum,
+                "totalValue": self.totalVal,
+                "goods": self.selectGoodList
+            }), function (data) {
+                alert('记账成功')
+            },function () {
+                alert('记账失败')
+            })
         }
     },
     ready (){

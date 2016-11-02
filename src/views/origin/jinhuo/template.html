@@ -22,15 +22,15 @@
                                 <tbody>
                                 <tr class="odd gradeX" v-for="item in selectGoodList"
                                     @click.stop="toggleSelect(item)"
-                                    :class="{'active':selected==item.id}"
+                                    :class="{'active':selected==item.gId}"
                                 >
-                                    <td>{{item.name}}</td>
-                                    <td class="center">{{item.id}}</td>
-                                    <td >{{item.spell}}</td>
-                                    <td >{{item.name}}</td>
-                                    <td >{{item.money}}</td>
-                                    <td >{{item.supplier}}</td>
-                                    <td >{{item.remark}}</td>
+                                    <td>{{item.gName}}</td>
+                                    <td class="center">{{item.gSpell}}</td>
+                                    <td >{{item.unit}}</td>
+                                    <td >{{item.gSupplier}}</td>
+                                    <td >{{item.price}}</td>
+                                    <td >{{item.countUnit}}</td>
+                                    <td >{{item.count}}</td>
                                 </tr>
 
                                 </tbody>
@@ -49,7 +49,7 @@
                                 <div class="col-sm-6 minWidth100">
                                     <div class="form-group ">
                                         <label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;日期</label>
-                                        <datepicker :date="saleDay"></datepicker>
+                                        <datepicker :date.sync="saleDay"></datepicker>
                                         <!--
                                          <p class="help-block">Example block-level help text here.</p>
                                         -->
@@ -113,7 +113,7 @@
                                         <input class="form-control" v-model="GoodInfo.unit">
                                     </div>
                                     <div class="form-group">
-                                        <label>数量</label>
+                                        <label>数量(kg)</label>
                                         <input class="form-control" v-model="count_weight">
 
                                     </div>
@@ -127,7 +127,10 @@
                                         <button  v-show="selected!=-1" type="button" class="btn btn-primary" style="width: 72px"
                                                 @click="correct"
                                         >修改</button>
-                                        <button type="button" class="btn btn-default" style="width: 72px;margin-left: 20px"
+                                        <button  type="button" class="btn btn-default" style="width: 72px;margin-left: 20px"
+                                                @click="cancel"
+                                        >取消</button>
+                                        <button v-show="selected!=-1" type="button" class="btn btn-default" style="width: 72px;margin-top: 10px"
                                                 @click="del"
                                         >删除</button>
                                     </div>

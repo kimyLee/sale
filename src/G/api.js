@@ -313,12 +313,12 @@ export default {
      "countUnit": 45,
      "count": 34
      }]*/
-    addInGoods (data , cb) {
+    addInGoods (data , cb,fail) {
         AJAX({
             type:'POST',
             url:'stocks/stock',
             data:data
-        },cb)
+        },cb,fail)
     },
 
     //查询进出货记录 stocks/inoutorder?startDate=2016-06-03&endDate=2016-06-18&type&supplier
