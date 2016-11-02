@@ -1,0 +1,124 @@
+<section id="kehuOption-section" class="section js-section ">
+    <header class="section-header">
+        <div class="section-wrapper">
+            <div class="row">
+                <div class="col-lg-9">
+                    <p class="help-block">客户列表</p>
+                    <div class="row">
+                        <div class="col-xs-12"  style="min-height: 500px">
+                            <table class="table table-striped table-bordered table-hover" id="dataTables-example">
+                                <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>客户名</th>
+                                    <th>拼音码</th>
+                                    <th>总欠</th>
+                                    <th>手机号</th>
+                                    <th>欠费额度</th>
+
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr class="odd gradeX" v-for="item in cusList"
+                                    @click.stop="toggleSelect(item)"
+                                    :class="{'active':selected==item.id}"
+                                >
+                                    <td>{{item.id}}</td>
+                                    <td class="center">{{item.name}}</td>
+                                    <td >{{item.spell}}</td>
+                                    <td >{{item.loan}}</td>
+                                    <td>{{item.phone}}</td>
+                                    <td>{{item.credit}}</td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <mypage :params.sync="mypage"></mypage>
+                    </div>
+                </div>
+                <div class="col-lg-3">
+
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            客户管理
+                        </div>
+                        <div class="panel-body">
+                            <div class="row">
+                                <div class="col-sm-6 minWidth100">
+                                    <div class="form-group ">
+                                        <label>客户名</label>
+                                        <input class="form-control inlineInput" placeholder=""
+                                               v-model="cusInfo.name"
+                                        >
+                                        <!--
+                                         <p class="help-block">Example block-level help text here.</p>
+                                        -->
+                                    </div>
+                                    <div class="form-group ">
+                                        <label>&nbsp;&nbsp;&nbsp;拼音码</label>
+                                        <input class="form-control inlineInput" placeholder=""
+                                               v-model="cusInfo.spell"
+                                        >
+                                    </div>
+
+                                </div>
+                                <div class="col-sm-6 minWidth100">
+                                    <div class="form-group ">
+                                        <label>总欠金额</label>
+                                        <input class="form-control inlineInput" placeholder=""
+                                               v-model="cusInfo.loan"
+                                        >
+
+                                    </div>
+                                    <div class="form-group ">
+                                        <label>&nbsp;&nbsp;&nbsp;手机号</label>
+                                        <input class="form-control inlineInput" placeholder=""
+                                               v-model="cusInfo.phone"
+                                        >
+                                    </div>
+                                    <div class="form-group ">
+                                        <label>&nbsp;&nbsp;&nbsp;信用额度</label>
+                                        <input class="form-control inlineInput" placeholder=""
+                                               v-model="cusInfo.credit"
+                                        >
+                                    </div>
+
+                                </div>
+
+
+                                <div class="col-xs-12">
+                                    <button v-show="selected==-1" type="button" class="btn btn-primary" style="width: 72px"
+                                            @click.stop="add"
+                                    >添加</button>
+                                    <button v-show="selected!=-1" type="button" class="btn btn-primary" style="width: 72px"
+                                            @click.stop="correct"
+                                    >修改</button>
+                                    <button type="button" class="btn btn-default" style="width: 72px;margin-left: 20px"
+                                            @click.stop="cancel"
+                                    >取消</button>
+                                    <button v-show="selected!=-1" type="button" class="btn btn-default"
+                                            style="width: 72px;margin-top: 10px"
+                                            @click.stop="del"
+                                    >删除</button>
+                                </div>
+
+                            </div>
+
+
+
+
+
+
+                            <!-- /.row (nested) -->
+                        </div>
+                        <!-- /.panel-body -->
+                    </div>
+                    <!-- /.panel -->
+
+                </div>
+
+                <!-- /.col-lg-12 -->
+            </div>
+        </div>
+    </header>
+</section>

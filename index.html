@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+
+  <link rel="stylesheet" href="assets/css/variables.css">
+  <link rel="stylesheet" href="assets/css/nativize.css">
+  <link rel="stylesheet" href="assets/css/global.css">
+  <link rel="stylesheet" href="assets/css/about.css">
+  <link rel="stylesheet" href="assets/css/nav.css">
+  <link rel="stylesheet" href="assets/css/section.css">
+  <link rel="stylesheet" href="assets/css/demo.css">
+  <link rel="stylesheet" href="assets/css/github.css">
+  <!--我的部分-->
+  <link href="assets/bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- MetisMenu CSS -->
+  <link href="assets/bower_components/metisMenu/dist/metisMenu.min.css" rel="stylesheet">
+  <!-- Custom CSS -->
+  <link href="assets/distCom/css/sb-admin-2.css" rel="stylesheet">
+  <link href="assets/lib/jquery-ui.min.css" rel="stylesheet">
+  <!-- Custom Fonts -->
+  <link href="assets/bower_components/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+  <link href="assets/style.css" rel="stylesheet" type="text/css">
+<style>
+  .minWidth100{  min-width: 200px;  }
+  .inlineEle{display: inline-block}
+  .form-group .inlineInput,#stopOption-section .inlineInput{display: inline-block;min-width: 80px}
+  .myclear{  clear: both}
+  .myDropDown{ overflow: hidden;position: absolute;width:100%;background: #fff;border: 1px solid #ccc ;border-radius: 2px;z-index:100}
+  .myDropDown{ max-height: 500px;overflow-y: auto}
+  .myDropDown li{ display: block;min-width: 100px;width:100%;padding: 5px;border-bottom: 1px solid #ccc }
+  .myDropDown li:hover{ background: #3b99fc ;color: whitesmoke}
+  .myDropDown li.active{ background: #3b99fc ;color: whitesmoke}
+</style>
+
+
+</head>
+<body>
+<div id="app"></div>
+
+<script>window.$ = window.jQuery = require('./assets/lib/jquery-1.11.2.min.js');</script>
+<script>
+  require('./assets/lib/jquery-ui.min.js')
+  require('./assets/bower_components/bootstrap/dist/js/bootstrap.min.js')
+  require('./assets/bower_components/metisMenu/dist/metisMenu.min.js')
+  require('./assets/distCom/js/sb-admin-2.js')
+</script>
+
+
+<script>
+  //require('./assets/imports')
+  require('./assets/ex-links')
+ require('./assets/nav')
+ require('./assets/demo-btns')
+  require('./assets/code-blocks')
+  require('./assets/normalize-shortcuts')
+
+</script>
+<script src="build/build.js"></script>
+
+</body>
+</html>

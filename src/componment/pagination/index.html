@@ -1,0 +1,19 @@
+
+    <div class="clearfix">
+        <div class="pull-right">
+            <ul class="pagination dy-pagination">
+                <li class="{{numberOfPage === 1 || params.page === 1 ? 'disabled' : ''}}"><a href="javascript:;" @click.stop="getRouteObj(1)">首页</a></li>
+                <li class="{{numberOfPage === 1 || params.page === 1 ? 'disabled' : ''}}"><a href="javascript:;" @click.stop="getRouteObj(params.page - 1)">上页</a></li>
+                <li v-for="item in pageArr" v-bind:class="{'active': item===params.page}">
+                    <a @click="getRouteObj(item)" href="javascript:;" >{{item}}</a>
+                </li>
+
+                <li><a href="javascript:;" class="{{numberOfPage === 1 || params.page === numberOfPage ? 'disabled' : ''}}" @click.stop="getRouteObj(params.page-0+1)">下页</a></li>
+                <li><a href="javascript:;" class="{{numberOfPage === 1 || params.page === numberOfPage ? 'disabled' : ''}}" @click.stop="getRouteObj(numberOfPage)">尾页</a></li>
+                <li class="jump">
+                    <a>跳到&nbsp;<input class="my-form-control" type="text" v-model="jump">&nbsp;页</a>
+                </li>
+                <li><a href="javascript:;" @click="jumpToPage">确定</a></li>
+            </ul>
+        </div>
+    </div>

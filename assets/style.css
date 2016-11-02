@@ -1,0 +1,8 @@
+.table>tbody>tr.active>td{
+    background-color: #5594de;
+    color: #fff;
+}
+.table>tbody>tr.active:hover>td{
+    background-color: #5594de;
+    color: #fff;
+}

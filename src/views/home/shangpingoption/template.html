@@ -1,0 +1,141 @@
+<section id="stopOption-section" class="section js-section ">
+    <header class="section-header">
+        <div class="section-wrapper">
+            <div class="row">
+                <div class="col-lg-9">
+                    <p class="help-block">商品列表</p>
+                    <div class="row">
+                        <div class="col-xs-12" style="min-height: 500px">
+
+                            <table class="table table-striped table-bordered table-hover" id="dataTables-example">
+                                <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>名称</th>
+                                    <th>拼音码</th>
+                                    <th>单位</th>
+                                    <th>过磅费</th>
+                                    <th>包装费</th>
+                                    <th>供应商</th>
+                                    <th>库存</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr class="odd gradeX" v-for="item in goodList"
+                                    @click.stop="toggleSelect(item)"
+                                    :class="{'active':selected===item.id}"
+                                >
+                                    <td>{{item.id}}</td>
+                                    <td class="center">{{item.name}}</td>
+                                    <td >{{item.spell}}</td>
+                                    <td >{{item.unit}}</td>
+                                    <td>{{item.weighFee}}</td>
+                                    <td>{{item.packFee}}</td>
+                                    <td>{{item.supplier}}</td>
+                                    <td>{{item.inventory}}</td>
+                                </tr>
+                                </tbody>
+                            </table>
+
+                        </div>
+                        <mypage :params.sync="mypage"></mypage>
+                    </div>
+                </div>
+                <div class="col-lg-3">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            商品管理
+                        </div>
+                        <div class="panel-body">
+                            <div class="row">
+                                <div class="col-sm-6 minWidth100">
+                                    <div class="form-group ">
+                                        <label>商品名称</label>
+                                        <input class="form-control inlineInput" v-model="GoodInfo.name">
+                                    </div>
+                                    <div class="form-group ">
+                                        <label>&nbsp;&nbsp;&nbsp;拼音码</label>
+                                        <input class="form-control inlineInput" placeholder="请输入拼音码"
+                                        v-model="GoodInfo.spell"
+                                        >
+                                    </div>
+                                    <div class="form-group ">
+                                        <label>&nbsp;&nbsp;&nbsp;库存</label>
+                                        <input class="form-control inlineInput" placeholder=""
+                                               v-model="GoodInfo.inventory"
+                                        >
+                                    </div>
+                                    <div class="form-group ">
+                                        <label>&nbsp;&nbsp;&nbsp;供应商</label>
+
+<!--
+                                        <input class="form-control inlineInput" v-model="GoodInfo.supplier">
+-->
+
+                                        <dropdown placeholder="选择供应商"
+                                                  :word.sync="GoodInfo.supplier"
+                                                  :list.sync="supplierList"
+                                                  @search="searchSupplier"
+                                                  @select="SupplierRender"
+                                        ></dropdown>
+                                    </div>
+
+                                </div>
+                                <div class="col-sm-6 minWidth100">
+                                    <div class="form-group ">
+                                        <label>&nbsp;&nbsp;&nbsp;单位</label>
+                                        <select style="width: 100%;height: 30px" v-model="GoodInfo.unit">
+                                            <option value="公斤">公斤</option>
+                                            <option value="件">件</option>
+                                        </select>
+<!--
+                                        <input class="form-control inlineInput" v-model="GoodInfo.unit">
+-->
+
+                                    </div>
+                                    <div class="form-group ">
+                                        <label>&nbsp;&nbsp;&nbsp;过磅费</label>
+                                        <input class="form-control inlineInput" v-model="GoodInfo.weighFee">
+                                    </div>
+
+                                </div>
+                                <div class="col-sm-6 minWidth100">
+                                    <div class="form-group ">
+                                        <label>&nbsp;&nbsp;&nbsp;包装费</label>
+                                        <input class="form-control inlineInput" v-model="GoodInfo.packFee">
+
+                                    </div>
+
+
+                                </div>
+                                <div class="col-xs-12">
+                                    <button v-show="selected==-1" type="button" class="btn btn-primary" style="width: 72px"
+                                    @click.stop="add"
+                                    >添加</button>
+                                    <button v-show="selected!=-1" type="button" class="btn btn-primary" style="width: 72px"
+                                    @click.stop="correct"
+                                    >修改</button>
+                                    <button type="button" class="btn btn-default" style="width: 72px;margin-left: 20px"
+                                    @click.stop="cancel"
+                                    >取消</button>
+                                    <button v-show="selected!=-1" type="button" class="btn btn-default"
+                                            style="width: 72px;margin-top: 10px"
+                                    @click.stop="del"
+                                    >删除</button>
+                                </div>
+
+                            </div>
+
+                            <!-- /.row (nested) -->
+                        </div>
+                        <!-- /.panel-body -->
+                    </div>
+                    <!-- /.panel -->
+
+                </div>
+
+                <!-- /.col-lg-12 -->
+            </div>
+        </div>
+    </header>
+</section>

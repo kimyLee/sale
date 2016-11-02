@@ -1,0 +1,145 @@
+<section id="zhuanzhang-section" class="section js-section ">
+    <header class="section-header">
+        <div class="section-wrapper">
+            <div class="row">
+                <div class="col-lg-9">
+                    <h3 class="help-block">转账记录</h3>
+                    <p class="help-block">
+                        <span style="display: inline-block">开始时间：
+                        <datepicker :date.sync="begin"></datepicker>
+                        </span>
+                        <span style="display: inline-block;margin-left: 10px">结束时间：
+                        <datepicker :date.sync="end"></datepicker>
+
+                        </span>
+                        <button  type="button" class="btn btn-primary" style="width: 72px"
+                                 @click.stop="search"
+                        >查看</button>
+                    </p>
+                    <div class="row">
+                        <div class="col-xs-12"  style="min-height: 500px">
+                            <table class="table table-striped table-bordered table-hover" id="dataTables-example">
+                                <thead>
+                                <tr>
+                                    <th>时间</th>
+                                    <th>转账对象</th>
+                                    <th>总数</th>
+                                    <th>备注</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <!--  @click.stop="toggleSelect(item)"
+                                    :class="{'active':selected==item.id}"-->
+                                <tr class="odd gradeX" v-for="item in list">
+                                    <td>{{item.date}}</td>
+                                    <td class="center">{{item.destination}}</td>
+                                    <td >{{item.amount}}</td>
+                                    <td >{{item.remark}}</td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                       <!-- <mypage :params.sync="mypage"></mypage>-->
+                    </div>
+                </div>
+                <div class="col-lg-3">
+
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            转账操作
+                        </div>
+                        <div class="panel-body">
+                            <div class="row">
+                                <div class="col-sm-6 minWidth100">
+                                    <div class="form-group ">
+                                        <label>时间</label>
+                                        <datepicker :date.sync="info.date"></datepicker>
+                                    </div>
+                                    <div class="form-group ">
+                                        <label>转账对象</label>
+                                        <input class="form-control inlineInput" placeholder=""
+                                               v-model="info.destination">
+                                    </div>
+                                    <div class="form-group ">
+                                        <label>转账金额</label>
+                                        <input class="form-control inlineInput" placeholder=""
+                                               v-model="info.amount"
+                                        >
+                                    </div>
+
+
+                                </div>
+                                <div class="col-sm-6 minWidth100">
+                                    <div class="form-group ">
+                                        <label>备注</label>
+                                        <input class="form-control inlineInput" placeholder=""
+                                               v-model="info.remark">
+                                    </div>
+                                    <div class="form-group ">
+                                        <label>前存金额</label>
+                                        <input class="form-control inlineInput" placeholder=""
+                                               v-model="beforeMoney"
+                                        >
+                                    </div>
+                                    <div class="form-group ">
+                                        <label>转后金额</label>
+                                        <input class="form-control inlineInput" placeholder=""
+                                               v-model="afterMoney">
+                                    </div>
+
+                                </div>
+                                <div class="col-xs-12">
+                                    <button  type="button" class="btn btn-primary" style="width: 72px"
+                                            @click.stop="add"
+                                    >添加</button>
+                                    <button type="button" class="btn btn-default" style="width: 72px;margin-left: 20px"
+                                            @click.stop="clear"
+                                    >取消</button>
+
+                                </div>
+
+                            </div>
+                            <!-- /.row (nested) -->
+                        </div>
+                        <!-- /.panel-body -->
+                    </div>
+                    <!-- /.panel -->
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            修改现存
+                        </div>
+                        <div class="panel-body">
+                            <div class="row">
+                                <div class="col-sm-6 minWidth100">
+                                    <div class="form-group ">
+                                        <label>现存金额</label>
+                                        <input class="form-control inlineInput" placeholder=""
+                                               v-model="amount"
+                                        >
+
+                                    </div>
+
+                                </div>
+                                <div class="col-xs-12">
+                                    <button  type="button" class="btn btn-primary" style="width: 72px"
+                                            @click.stop="correctMoney"
+                                    >修改</button>
+                                    <button type="button" class="btn btn-default" style="width: 72px;margin-left: 20px"
+                                            @click.stop="cancel"
+                                    >取消</button>
+
+                                </div>
+
+                            </div>
+                            <!-- /.row (nested) -->
+                        </div>
+                        <!-- /.panel-body -->
+                    </div>
+
+                </div>
+
+                <!-- /.col-lg-12 -->
+            </div>
+        </div>
+    </header>
+</section>

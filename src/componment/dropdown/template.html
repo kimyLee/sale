@@ -1,0 +1,9 @@
+<div style=" " @keyup.up.prevent.stop="minusIndex" @keyup.down.prevent.stop="plusIndex" @keyup.enter.prevent="select">
+    <input class="form-control inlineInput" placeholder="{{placeholder}}" v-model="word" @input.stop="search"
+           @click.stop="search" autocomplete="off">
+    <ul class="myDropDown" v-show="list&&list.length>0">
+        <li v-for="item in list" @click.stop="selectWord(item)"
+            :class="{'active':index==$index}">{{item.name}}
+        </li>
+    </ul>
+</div>
