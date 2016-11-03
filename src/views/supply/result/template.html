@@ -9,43 +9,36 @@
                             <table class="table table-striped table-bordered table-hover" id="dataTables-example">
                                 <thead>
                                 <tr>
-                                    <th>ID</th>
                                     <th>名称</th>
                                     <th>供货商</th>
                                     <th>包装费</th>
                                     <th>过磅费</th>
                                     <th>提成方式</th>
-                                    <th>< 单价1</th>
-                                    <th>百分比1</th>
-                                    <th>< 单价2</th>
-                                    <th>百分比2</th>
-                                    <th>< 单价3</th>
-                                    <th>百分比3</th>
-                                    <th>< 单价4</th>
-                                    <th>百分比4</th>
-                                    <th>< 单价5</th>
-                                    <th>百分比5</th>
+                                    <th>提成结算</th>
 
                                 </tr>
                                 </thead>
                                 <tbody>
                                 <tr class="odd gradeX">
-                                    <td>小白菜</td>
-                                    <td class="center">2</td>
-                                    <td >2</td>
+                                    <td class="center">小白菜</td>
+                                    <td >信息</td>
                                     <td>4</td>
-                                    <td>江南</td>
-                                    <td>江南</td>
-                                    <td>小白菜</td>
-                                    <td class="center">2</td>
-                                    <td >2</td>
+                                    <td>2</td>
+                                    <td>按件</td>
                                     <td>4</td>
-                                    <td>江南</td>
-                                    <td>江南</td>
-                                    <td>江南</td>
-                                    <td>江南</td>
-                                    <td>江南</td>
-                                    <td>江南</td>
+
+                                </tr>
+                                <tr class="odd gradeX">
+                                    <td class="center">小白菜</td>
+                                    <td >信息</td>
+                                    <td>4</td>
+                                    <td>2</td>
+                                    <td>按件</td>
+                                    <td>
+                                        <p>单价：23  百分比：23%</p>
+                                        <p>单价：23  百分比：23%</p>
+                                        <p>单价：23  百分比：23%</p>
+                                    </td>
 
                                 </tr>
 
@@ -65,14 +58,21 @@
                                 <div class="col-sm-6 minWidth100">
                                     <div class="form-group ">
                                         <label>供货商</label>
-                                        <input class="form-control inlineInput" >
-                                        <!--
-                                         <p class="help-block">Example block-level help text here.</p>
-                                        -->
+                                        <dropdown placeholder="选择供应商"
+                                                  :word.sync="supplier"
+                                                  :list.sync="supplierList"
+                                                  @search="searchSupplier"
+                                                  @select="SupplierRender"
+                                        ></dropdown>
                                     </div>
                                     <div class="form-group ">
                                         <label>商品</label>
-                                        <input class="form-control inlineInput" >
+                                        <dropdown placeholder="请输入商品名称"
+                                                  :word.sync="name"
+                                                  :list.sync="goodNameList"
+                                                  @search="searchGoodByName"
+                                                  @select="goodRender"
+                                        ></dropdown>
                                     </div>
 
                                 </div>
@@ -80,73 +80,122 @@
                                 <div class="col-sm-6 minWidth100">
                                     <div class="form-group ">
                                         <label>&nbsp;&nbsp;&nbsp;包装费</label>
-                                        <input class="form-control inlineInput" >
+                                        <input class="form-control inlineInput" v-model="packFee">
 
                                     </div>
                                     <div class="form-group ">
                                         <label>过磅费</label>
-                                        <input class="form-control inlineInput" >
+                                        <input class="form-control inlineInput" v-model="weightFee">
                                     </div>
 
                                 </div>
                                 <div class="col-sm-6 minWidth100">
                                     <div class="form-group ">
-                                        <label>按件</label>
-                                        <input class="form-control inlineInput" >
+                                        <label>结算方式</label>
+                                        <select style="width: 100%;height: 30px" v-model="type">
+                                            <option value="1">件</option>
+                                            <option value="2">单价</option>
+                                        </select>
 
                                     </div>
 
                                 </div>
                                 <div class="col-sm-6 minWidth100">
+                                    <div class="form-group ">
+                                        <label>件数提成</label>
+                                        <input class="form-control inlineInput" v-model="unitFee">
+
+                                    </div>
+
+                                </div>
+                             </div>
+                            <div class="row">
+                                <div class="col-sm-6 ">
                                     <div class="form-group ">
                                         <label>单价1</label>
-                                        <input class="form-control inlineInput" >
-                                        ％
-                                        <input class="form-control inlineInput" >
-
+                                        <input class="form-control inlineInput" v-model="price1">
                                     </div>
+                                </div>
+                                <div class="col-sm-6 ">
+                                    <div class="form-group ">
+                                        <label>百分比</label>
+                                        <input class="form-control inlineInput" style="width: 50px;min-width: 0"
+                                               v-model="percent1"
+                                        > ％
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-6 ">
                                     <div class="form-group ">
                                         <label>单价2</label>
-                                        <input class="form-control inlineInput" >
-                                        ％
-                                        <input class="form-control inlineInput" >
+                                        <input class="form-control inlineInput" v-model="price2">
                                     </div>
-
-
                                 </div>
-                                <div class="col-sm-6 minWidth100">
+                                <div class="col-sm-6 ">
+                                    <div class="form-group ">
+                                        <label>百分比</label>
+                                        <input class="form-control inlineInput" style="width: 50px;min-width: 0"
+                                               v-model="percent2"
+                                        > ％
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-6 ">
                                     <div class="form-group ">
                                         <label>单价3</label>
-                                        <input class="form-control inlineInput" >
-                                        ％
-                                        <input class="form-control inlineInput" >
-
+                                        <input class="form-control inlineInput" v-model="price3">
                                     </div>
+                                </div>
+                                <div class="col-sm-6 ">
+                                    <div class="form-group ">
+                                        <label>百分比</label>
+                                        <input class="form-control inlineInput" style="width: 50px;min-width: 0"
+                                               v-model="percent3"
+                                        > ％
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-6 ">
                                     <div class="form-group ">
                                         <label>单价4</label>
-                                        <input class="form-control inlineInput" >
-                                        ％
-                                        <input class="form-control inlineInput" >
+                                        <input class="form-control inlineInput" v-model="price4">
                                     </div>
-
-
                                 </div>
-                                <div class="col-sm-6 minWidth100">
+                                <div class="col-sm-6 ">
+                                    <div class="form-group ">
+                                        <label>百分比</label>
+                                        <input class="form-control inlineInput" style="width: 50px;min-width: 0"
+                                               v-model="percent4"
+                                        > ％
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-6 ">
                                     <div class="form-group ">
                                         <label>单价5</label>
-                                        <input class="form-control inlineInput" >
-                                        ％
-                                        <input class="form-control inlineInput" >
-
+                                        <input class="form-control inlineInput" v-model="price5">
                                     </div>
-
-
                                 </div>
+                                <div class="col-sm-6 ">
+                                    <div class="form-group ">
+                                        <label>百分比</label>
+                                        <input class="form-control inlineInput" style="width: 50px;min-width: 0"
+                                               v-model="percent5"
+                                        > ％
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
                                 <div class="col-xs-12">
-                                    <button type="button" class="btn btn-primary" style="width: 72px"> 更改</button>
+                                    <button type="button" class="btn btn-primary" style="width: 72px"
+                                    @click="add"
+                                    > 添加</button>
+                                    <button type="button" class="btn btn-primary" style="width: 72px;margin-left: 10px"> 更改</button>
                                 </div>
-
-
                             </div>
 
 

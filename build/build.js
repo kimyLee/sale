@@ -4074,6 +4074,18 @@
 	        url: 'suppliers/supplier',
 	        data: data
 	    }, cb);
+	}), (0, _defineProperty3.default)(_sale$searchCustomer$, 'addResultWay', function addResultWay(data, cb, fail) {
+	    (0, _promise2.default)({
+	        type: 'POST',
+	        url: 'suppliers/settlement',
+	        data: data
+	    }, cb, fail);
+	}), (0, _defineProperty3.default)(_sale$searchCustomer$, 'CheckResultWay', function CheckResultWay(data, cb, fail) {
+	    (0, _promise2.default)({
+	        type: 'GET',
+	        url: 'suppliers/settlement',
+	        data: data
+	    }, cb, fail);
 	}), _sale$searchCustomer$);
 
 /***/ },
@@ -4831,12 +4843,12 @@
 	                    unit: self.selectGoodList[i].danWei
 	                });
 	            }
-	            _api2.default.searchCustomer((0, _stringify2.default)({
+	            _api2.default.sale((0, _stringify2.default)({
 	                cId: self.cusCode,
 	                cName: self.Cname,
 	                cSpell: self.CPinyin,
-	                appearanceFee: self.appearFee,
-	                carFee: self.trafficFee,
+	                appearanceFee: self.appearFee - 0,
+	                carFee: self.trafficFee - 0,
 	                date: self.saleDay,
 	                shishou: self.factFee,
 	                storeList: arr,
@@ -4857,7 +4869,7 @@
 /* 46 */
 /***/ function(module, exports) {
 
-	module.exports = "    <section id=\"xiadan-section\" class=\"section js-section \">\r\n        <header class=\"section-header\">\r\n            <div class=\"section-wrapper\">\r\n                <div class=\"row\">\r\n                    <div class=\"col-lg-9\">\r\n                        <p class=\"help-block\">订单列表</p>\r\n                        <div class=\"row\">\r\n                            <div class=\"col-xs-12\">\r\n                                <table class=\"table table-striped table-bordered table-hover\" id=\"dataTables-example\">\r\n                                    <thead>\r\n                                    <tr>\r\n                                       <!-- <th>ID</th>-->\r\n                                        <th>名称</th>\r\n                                        <th>件数</th>\r\n                                        <th>数量(kg)</th>\r\n                                        <th>单位</th>\r\n                                        <th>单价</th>\r\n                                        <th>过磅费</th>\r\n                                        <th>包装费</th>\r\n                                        <th>供应商</th>\r\n                                        <th>合计</th>\r\n                                    </tr>\r\n                                    </thead>\r\n                                    <tbody>\r\n                                    <tr class=\"odd gradeX\" v-for=\"item in selectGoodList\"\r\n                                        @click.stop=\"toggleSelect($index)\"\r\n                                        :class=\"{'active':delGoodList==$index}\"\r\n                                    >\r\n                                        <td  >{{item.name}}</td>\r\n                                        <td  @click.stop=\"toggleSelect($index)\">{{item.count_jian}}</td>\r\n                                        <td  @click.stop=\"toggleSelect($index)\">{{item.count_weight}}</td>\r\n                                        <td  @click.stop=\"toggleSelect($index)\"> {{item.unit}}</td>\r\n                                        <td  @click.stop=\"toggleSelect($index)\">{{item.price}}</td>\r\n                                        <td  @click.stop=\"toggleSelect($index)\">{{item.weighFee}}</td>\r\n                                        <td  @click.stop=\"toggleSelect($index)\">{{item.packFee}}</td>\r\n                                        <td  @click.stop=\"toggleSelect($index)\">{{item.supplier}}</td>\r\n                                        <td  @click.stop=\"toggleSelect($index)\">{{item.total}}</td>\r\n                                    </tr>\r\n                                    </tbody>\r\n                                </table>\r\n                            </div>\r\n                        </div>\r\n                    </div>\r\n                    <div class=\"col-lg-3\">\r\n                        <div class=\"panel panel-default\">\r\n                            <div class=\"panel-heading\">\r\n                                销售单\r\n                            </div>\r\n                            <div class=\"panel-body\">\r\n                                <div class=\"row\">\r\n                                    <div class=\"col-sm-6 minWidth100\">\r\n                                        <div class=\"form-group \">\r\n                                            <label>销售日期</label>\r\n                                            <datepicker :date=\"saleDay\"></datepicker>\r\n                                        </div>\r\n                                        <div class=\"form-group \">\r\n                                            <label>客户编码</label>\r\n                                            <dropdown placeholder=\"请输入客户编码\"\r\n                                                      :word.sync=\"cusCode\"\r\n                                                      :list.sync=\"listId\"\r\n                                                      @search=\"searchByID\"\r\n                                                      @select=\"CusRender\"\r\n                                            ></dropdown>\r\n\r\n                                        </div>\r\n\r\n                                    </div>\r\n                                    <div class=\"col-sm-6 minWidth100\">\r\n                                        <div class=\"form-group \">\r\n                                            <label>&nbsp;&nbsp;&nbsp;拼音码</label>\r\n<!--\r\n                                            <input class=\"form-control inlineInput\" placeholder=\"请输入拼音码\" v-model=\"CPinyin\">\r\n-->\r\n                                            <dropdown placeholder=\"请输入客户拼音码\"\r\n                                                      :word.sync=\"CPinyin\"\r\n                                                      :list.sync=\"listSpell\"\r\n                                                      @search=\"searchBySpell\"\r\n                                                      @select=\"CusRender\"\r\n                                            ></dropdown>\r\n                                        </div>\r\n                                        <div class=\"form-group \">\r\n                                            <label>客户名称</label>\r\n<!--\r\n                                            <input class=\"form-control inlineInput\" readonly=\"readonly\" v-model=\"Cname\">\r\n-->\r\n                                            <dropdown placeholder=\"请输入客户名称\"\r\n                                                      :word.sync=\"Cname\"\r\n                                                      :list.sync=\"listName\"\r\n                                                      @search=\"searchByName\"\r\n                                                      @select=\"CusRender\"\r\n                                            ></dropdown>\r\n                                        </div>\r\n\r\n                                    </div>\r\n\r\n                                </div>\r\n\r\n                                <hr/>\r\n                                <div class=\"row\">\r\n                                    <div class=\"col-xs-12\">\r\n                                        <div class=\"form-group\">\r\n                                            <label class=\"inlineEle\">商品名称</label>\r\n                                            <dropdown placeholder=\"请输入商品名称\"\r\n                                                      :word.sync=\"GoodInfo.name\"\r\n                                                      :list.sync=\"goodNameList\"\r\n                                                      @search=\"searchGoodByName\"\r\n                                                      @select=\"goodRender\"\r\n                                            ></dropdown>\r\n\r\n                                        </div>\r\n                                    </div>\r\n                                </div>\r\n                                <div class=\"row\">\r\n                                    <div class=\"col-xs-6\">\r\n\r\n                                        <div class=\"form-group\">\r\n                                            <label class=\"inlineEle\">拼音码</label>\r\n                                            <dropdown placeholder=\"请输入商品拼音码\"\r\n                                                      :word.sync=\"GoodInfo.spell\"\r\n                                                      :list.sync=\"goodSpellList\"\r\n                                                      @search=\"searchGoodBySpell\"\r\n                                                      @select=\"goodRender\"\r\n                                            ></dropdown>\r\n                                        </div>\r\n                                        <div class=\"form-group\">\r\n                                            <label class=\"inlineEle\">商品编号</label>\r\n                                            <dropdown placeholder=\"请输入商品编码\"\r\n                                                      :word.sync=\"GoodInfo.id\"\r\n                                                      :list.sync=\"goodIDList\"\r\n                                                      @search=\"searchGoodByID\"\r\n                                                      @select=\"goodRender\"\r\n                                            ></dropdown>\r\n\r\n                                        </div>\r\n                                        <div class=\"form-group\">\r\n                                            <label class=\"inlineEle\">库存</label>\r\n                                            <input class=\"form-control inlineEle\"  v-model=\"GoodInfo.inventory\">\r\n                                        </div>\r\n                                        <div class=\"form-group\">\r\n                                            <label>单位</label>\r\n                                            <input class=\"form-control\" v-model=\"GoodInfo.unit\">\r\n\r\n                                        </div>\r\n\r\n                                    </div>\r\n                                    <div class=\"col-xs-6\">\r\n                                        <div class=\"form-group\">\r\n                                            <label>件数</label>\r\n                                            <input class=\"form-control\" v-model=\"count_jian\">\r\n                                        </div>\r\n                                        <div class=\"form-group\">\r\n                                            <label>单价</label>\r\n                                            <input class=\"form-control\"  v-model=\"price\">\r\n                                        </div>\r\n                                        <div class=\"form-group\">\r\n                                            <label>数量</label>\r\n                                            <input class=\"form-control\" v-model=\"count_weight\">\r\n\r\n                                        </div>\r\n\r\n\r\n\r\n                                    </div>\r\n                                    <div class=\"col-xs-12\">\r\n                                        <div class=\"form-group\">\r\n                                            <label>供货商</label>\r\n                                            <input class=\"form-control\" v-model=\"GoodInfo.supplier\">\r\n                                        </div>\r\n                                    </div>\r\n                                    <div class=\"col-xs-12\">\r\n                                        <button v-if=\"delGoodList<0\" type=\"button\" class=\"btn btn-primary\" style=\"width: 72px\"\r\n                                                @click=\"add\"\r\n                                        >添加</button>\r\n                                        <button v-if=\"delGoodList>=0\" type=\"button\" class=\"btn btn-primary\" style=\"width: 72px\"\r\n                                                @click=\"correct\"\r\n                                        >修改</button>\r\n                                        <button type=\"button\" class=\"btn btn-default\" style=\"width: 72px;margin-left: 20px\"\r\n                                                @click=\"del\"\r\n                                        >删除</button>\r\n                                    </div>\r\n                                </div>\r\n                                <hr/>\r\n                                <div class=\"row\">\r\n                                    <div class=\"col-xs-6\">\r\n                                        <div class=\"form-group\">\r\n                                            <label>合计金额</label>\r\n                                            <input class=\"form-control\" v-model=\"totalMoney\">\r\n                                            <!--\r\n                                             <p class=\"help-block\">Example block-level help text here.</p>\r\n                                            -->\r\n                                        </div>\r\n                                        <div class=\"form-group\">\r\n                                            <label>前欠金额</label>\r\n                                            <input class=\"form-control\" v-model=\"CInfo.loan\">\r\n                                        </div>\r\n\r\n                                    </div>\r\n                                    <div class=\"col-xs-6\">\r\n                                        <div class=\"form-group\">\r\n                                            <label>挂欠金额</label>\r\n                                            <input class=\"form-control\" v-model=\"NowLoan\" readonly=\"readonly\">\r\n\r\n                                        </div>\r\n                                        <div class=\"form-group\">\r\n                                            <label>总欠金额</label>\r\n                                            <input class=\"form-control\" v-model=\"totalLoan\">\r\n                                        </div>\r\n\r\n                                    </div>\r\n\r\n\r\n                                </div>\r\n                                <hr/>\r\n                                <div class=\"row\">\r\n                                    <div class=\"col-xs-6\">\r\n                                        <div class=\"form-group\">\r\n                                            <label>出场费</label>\r\n                                            <input class=\"form-control\" v-model=\"appearFee\">\r\n                                            <!--\r\n                                             <p class=\"help-block\">Example block-level help text here.</p>\r\n                                            -->\r\n                                        </div>\r\n                                        <div class=\"form-group\">\r\n                                            <label>三轮车费</label>\r\n                                            <input class=\"form-control\" v-model=\"trafficFee\">\r\n                                        </div>\r\n\r\n                                    </div>\r\n                                    <div class=\"col-xs-6\">\r\n                                        <div class=\"form-group\">\r\n                                            <label>实收金额</label>\r\n                                            <input class=\"form-control\" v-model=\"factFee\">\r\n\r\n                                        </div>\r\n                                    </div>\r\n                                    <div class=\"col-xs-12\">\r\n                                        <button type=\"button\" class=\"btn btn-primary\" style=\"width: 72px\"\r\n                                                @click.stop=\"inMoney\"\r\n                                        >记账</button>\r\n                                    </div>\r\n\r\n                                </div>\r\n\r\n                                <!-- /.row (nested) -->\r\n                            </div>\r\n                            <!-- /.panel-body -->\r\n                        </div>\r\n                        <!-- /.panel -->\r\n\r\n                    </div>\r\n\r\n                    <!-- /.col-lg-12 -->\r\n                </div>\r\n            </div>\r\n        </header>\r\n    </section>\r\n";
+	module.exports = "    <section id=\"xiadan-section\" class=\"section js-section \">\r\n        <header class=\"section-header\">\r\n            <div class=\"section-wrapper\">\r\n                <div class=\"row\">\r\n                    <div class=\"col-lg-9\">\r\n                        <p class=\"help-block\">订单列表</p>\r\n                        <div class=\"row\">\r\n                            <div class=\"col-xs-12\">\r\n                                <table class=\"table table-striped table-bordered table-hover\" id=\"dataTables-example\">\r\n                                    <thead>\r\n                                    <tr>\r\n                                       <!-- <th>ID</th>-->\r\n                                        <th>名称</th>\r\n                                        <th>件数</th>\r\n                                        <th>数量(kg)</th>\r\n                                        <th>单位</th>\r\n                                        <th>单价</th>\r\n                                        <th>过磅费</th>\r\n                                        <th>包装费</th>\r\n                                        <th>供应商</th>\r\n                                        <th>合计</th>\r\n                                    </tr>\r\n                                    </thead>\r\n                                    <tbody>\r\n                                    <tr class=\"odd gradeX\" v-for=\"item in selectGoodList\"\r\n                                        @click.stop=\"toggleSelect($index)\"\r\n                                        :class=\"{'active':delGoodList==$index}\"\r\n                                    >\r\n                                        <td  >{{item.name}}</td>\r\n                                        <td  @click.stop=\"toggleSelect($index)\">{{item.count_jian}}</td>\r\n                                        <td  @click.stop=\"toggleSelect($index)\">{{item.count_weight}}</td>\r\n                                        <td  @click.stop=\"toggleSelect($index)\"> {{item.unit}}</td>\r\n                                        <td  @click.stop=\"toggleSelect($index)\">{{item.price}}</td>\r\n                                        <td  @click.stop=\"toggleSelect($index)\">{{item.weighFee}}</td>\r\n                                        <td  @click.stop=\"toggleSelect($index)\">{{item.packFee}}</td>\r\n                                        <td  @click.stop=\"toggleSelect($index)\">{{item.supplier}}</td>\r\n                                        <td  @click.stop=\"toggleSelect($index)\">{{item.total}}</td>\r\n                                    </tr>\r\n                                    </tbody>\r\n                                </table>\r\n                            </div>\r\n                        </div>\r\n                    </div>\r\n                    <div class=\"col-lg-3\">\r\n                        <div class=\"panel panel-default\">\r\n                            <div class=\"panel-heading\">\r\n                                销售单\r\n                            </div>\r\n                            <div class=\"panel-body\">\r\n                                <div class=\"row\">\r\n                                    <div class=\"col-sm-6 minWidth100\">\r\n                                        <div class=\"form-group \">\r\n                                            <label>销售日期</label>\r\n                                            <datepicker :date.sync=\"saleDay\"></datepicker>\r\n                                        </div>\r\n                                        <div class=\"form-group \">\r\n                                            <label>客户编码</label>\r\n                                            <dropdown placeholder=\"请输入客户编码\"\r\n                                                      :word.sync=\"cusCode\"\r\n                                                      :list.sync=\"listId\"\r\n                                                      @search=\"searchByID\"\r\n                                                      @select=\"CusRender\"\r\n                                            ></dropdown>\r\n\r\n                                        </div>\r\n\r\n                                    </div>\r\n                                    <div class=\"col-sm-6 minWidth100\">\r\n                                        <div class=\"form-group \">\r\n                                            <label>&nbsp;&nbsp;&nbsp;拼音码</label>\r\n<!--\r\n                                            <input class=\"form-control inlineInput\" placeholder=\"请输入拼音码\" v-model=\"CPinyin\">\r\n-->\r\n                                            <dropdown placeholder=\"请输入客户拼音码\"\r\n                                                      :word.sync=\"CPinyin\"\r\n                                                      :list.sync=\"listSpell\"\r\n                                                      @search=\"searchBySpell\"\r\n                                                      @select=\"CusRender\"\r\n                                            ></dropdown>\r\n                                        </div>\r\n                                        <div class=\"form-group \">\r\n                                            <label>客户名称</label>\r\n<!--\r\n                                            <input class=\"form-control inlineInput\" readonly=\"readonly\" v-model=\"Cname\">\r\n-->\r\n                                            <dropdown placeholder=\"请输入客户名称\"\r\n                                                      :word.sync=\"Cname\"\r\n                                                      :list.sync=\"listName\"\r\n                                                      @search=\"searchByName\"\r\n                                                      @select=\"CusRender\"\r\n                                            ></dropdown>\r\n                                        </div>\r\n\r\n                                    </div>\r\n\r\n                                </div>\r\n\r\n                                <hr/>\r\n                                <div class=\"row\">\r\n                                    <div class=\"col-xs-12\">\r\n                                        <div class=\"form-group\">\r\n                                            <label class=\"inlineEle\">商品名称</label>\r\n                                            <dropdown placeholder=\"请输入商品名称\"\r\n                                                      :word.sync=\"GoodInfo.name\"\r\n                                                      :list.sync=\"goodNameList\"\r\n                                                      @search=\"searchGoodByName\"\r\n                                                      @select=\"goodRender\"\r\n                                            ></dropdown>\r\n\r\n                                        </div>\r\n                                    </div>\r\n                                </div>\r\n                                <div class=\"row\">\r\n                                    <div class=\"col-xs-6\">\r\n\r\n                                        <div class=\"form-group\">\r\n                                            <label class=\"inlineEle\">拼音码</label>\r\n                                            <dropdown placeholder=\"请输入商品拼音码\"\r\n                                                      :word.sync=\"GoodInfo.spell\"\r\n                                                      :list.sync=\"goodSpellList\"\r\n                                                      @search=\"searchGoodBySpell\"\r\n                                                      @select=\"goodRender\"\r\n                                            ></dropdown>\r\n                                        </div>\r\n                                        <div class=\"form-group\">\r\n                                            <label class=\"inlineEle\">商品编号</label>\r\n                                            <dropdown placeholder=\"请输入商品编码\"\r\n                                                      :word.sync=\"GoodInfo.id\"\r\n                                                      :list.sync=\"goodIDList\"\r\n                                                      @search=\"searchGoodByID\"\r\n                                                      @select=\"goodRender\"\r\n                                            ></dropdown>\r\n\r\n                                        </div>\r\n                                        <div class=\"form-group\">\r\n                                            <label class=\"inlineEle\">库存</label>\r\n                                            <input class=\"form-control inlineEle\"  v-model=\"GoodInfo.inventory\">\r\n                                        </div>\r\n                                        <div class=\"form-group\">\r\n                                            <label>单位</label>\r\n                                            <input class=\"form-control\" v-model=\"GoodInfo.unit\">\r\n\r\n                                        </div>\r\n\r\n                                    </div>\r\n                                    <div class=\"col-xs-6\">\r\n                                        <div class=\"form-group\">\r\n                                            <label>件数</label>\r\n                                            <input class=\"form-control\" v-model=\"count_jian\">\r\n                                        </div>\r\n                                        <div class=\"form-group\">\r\n                                            <label>单价</label>\r\n                                            <input class=\"form-control\"  v-model=\"price\">\r\n                                        </div>\r\n                                        <div class=\"form-group\">\r\n                                            <label>数量</label>\r\n                                            <input class=\"form-control\" v-model=\"count_weight\">\r\n\r\n                                        </div>\r\n\r\n\r\n\r\n                                    </div>\r\n                                    <div class=\"col-xs-12\">\r\n                                        <div class=\"form-group\">\r\n                                            <label>供货商</label>\r\n                                            <input class=\"form-control\" v-model=\"GoodInfo.supplier\">\r\n                                        </div>\r\n                                    </div>\r\n                                    <div class=\"col-xs-12\">\r\n                                        <button v-if=\"delGoodList<0\" type=\"button\" class=\"btn btn-primary\" style=\"width: 72px\"\r\n                                                @click=\"add\"\r\n                                        >添加</button>\r\n                                        <button v-if=\"delGoodList>=0\" type=\"button\" class=\"btn btn-primary\" style=\"width: 72px\"\r\n                                                @click=\"correct\"\r\n                                        >修改</button>\r\n                                        <button type=\"button\" class=\"btn btn-default\" style=\"width: 72px;margin-left: 20px\"\r\n                                                @click=\"del\"\r\n                                        >删除</button>\r\n                                    </div>\r\n                                </div>\r\n                                <hr/>\r\n                                <div class=\"row\">\r\n                                    <div class=\"col-xs-6\">\r\n                                        <div class=\"form-group\">\r\n                                            <label>合计金额</label>\r\n                                            <input class=\"form-control\" v-model=\"totalMoney\">\r\n                                            <!--\r\n                                             <p class=\"help-block\">Example block-level help text here.</p>\r\n                                            -->\r\n                                        </div>\r\n                                        <div class=\"form-group\">\r\n                                            <label>前欠金额</label>\r\n                                            <input class=\"form-control\" v-model=\"CInfo.loan\">\r\n                                        </div>\r\n\r\n                                    </div>\r\n                                    <div class=\"col-xs-6\">\r\n                                        <div class=\"form-group\">\r\n                                            <label>挂欠金额</label>\r\n                                            <input class=\"form-control\" v-model=\"NowLoan\" readonly=\"readonly\">\r\n\r\n                                        </div>\r\n                                        <div class=\"form-group\">\r\n                                            <label>总欠金额</label>\r\n                                            <input class=\"form-control\" v-model=\"totalLoan\">\r\n                                        </div>\r\n\r\n                                    </div>\r\n\r\n\r\n                                </div>\r\n                                <hr/>\r\n                                <div class=\"row\">\r\n                                    <div class=\"col-xs-6\">\r\n                                        <div class=\"form-group\">\r\n                                            <label>出场费</label>\r\n                                            <input class=\"form-control\" v-model=\"appearFee\">\r\n                                            <!--\r\n                                             <p class=\"help-block\">Example block-level help text here.</p>\r\n                                            -->\r\n                                        </div>\r\n                                        <div class=\"form-group\">\r\n                                            <label>三轮车费</label>\r\n                                            <input class=\"form-control\" v-model=\"trafficFee\">\r\n                                        </div>\r\n\r\n                                    </div>\r\n                                    <div class=\"col-xs-6\">\r\n                                        <div class=\"form-group\">\r\n                                            <label>实收金额</label>\r\n                                            <input class=\"form-control\" v-model=\"factFee\">\r\n\r\n                                        </div>\r\n                                    </div>\r\n                                    <div class=\"col-xs-12\">\r\n                                        <button type=\"button\" class=\"btn btn-primary\" style=\"width: 72px\"\r\n                                                @click.stop=\"inMoney\"\r\n                                        >记账</button>\r\n                                    </div>\r\n\r\n                                </div>\r\n\r\n                                <!-- /.row (nested) -->\r\n                            </div>\r\n                            <!-- /.panel-body -->\r\n                        </div>\r\n                        <!-- /.panel -->\r\n\r\n                    </div>\r\n\r\n                    <!-- /.col-lg-12 -->\r\n                </div>\r\n            </div>\r\n        </header>\r\n    </section>\r\n";
 
 /***/ },
 /* 47 */
@@ -4985,11 +4997,31 @@
 	            });
 	        },
 	        checkList: function checkList() {
-	            var self = this;
+	            var self = {
+	                appearanceFee: "2",
+	                cId: 3,
+	                cName: "小红",
+	                cSpell: "xiaohong",
+	                carFee: "1",
+	                date: "",
+	                shishou: "14",
+	                storeList: [{
+	                    count: 3,
+	                    countUnit: 1.0,
+	                    gId: 12,
+	                    gName: "小白菜",
+	                    gPrice: 2.0,
+	                    gSpell: "qww",
+	                    gSupplier: "城北",
+	                    money: 14
+	                }],
+	                totalMoney: 14
+	            };
 	            _api2.default.checkGoodsSale({
 	                startDate: self.beginDate,
 	                endDate: self.endDate,
 	                supplier: self.GoodInfo.supplier
+	
 	            }, function (data) {
 	                self.goodSaleList = data.list;
 	            });
@@ -7545,38 +7577,269 @@
 /* 117 */
 /***/ function(module, exports, __webpack_require__) {
 
-	"use strict";
+	'use strict';
 	
 	Object.defineProperty(exports, "__esModule", {
 	    value: true
 	});
 	
+	var _defineProperty2 = __webpack_require__(22);
+	
+	var _defineProperty3 = _interopRequireDefault(_defineProperty2);
+	
+	var _stringify = __webpack_require__(8);
+	
+	var _stringify2 = _interopRequireDefault(_stringify);
+	
+	var _template$replace$pro; /**
+	                            * Created by duoyi on 2016/9/8.
+	                            */
+	/**
+	 * Created by duoyi on 2016/9/8.
+	 */
+	
+	
+	var _jquery = __webpack_require__(11);
+	
+	var _jquery2 = _interopRequireDefault(_jquery);
+	
 	var _template = __webpack_require__(118);
 	
 	var _template2 = _interopRequireDefault(_template);
 	
+	var _datepicker = __webpack_require__(43);
+	
+	var _datepicker2 = _interopRequireDefault(_datepicker);
+	
+	var _dropdown = __webpack_require__(13);
+	
+	var _dropdown2 = _interopRequireDefault(_dropdown);
+	
+	var _api = __webpack_require__(21);
+	
+	var _api2 = _interopRequireDefault(_api);
+	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
-	exports.default = {
-	
+	var Timer = void 0;
+	var Timer2 = void 0;
+	exports.default = (_template$replace$pro = {
 	    template: _template2.default,
-	
 	    replace: true,
-	
 	    props: {},
-	
 	    data: function data() {
-	        return {};
+	        return {
+	            saleDay: '',
+	            /**商品*/
+	            GoodInfo: {},
+	
+	            price: "", //單價
+	            count_weight: "", //数量
+	            count_jian: "", //件數
+	
+	            goodIDList: [], //商品搜索列表
+	            goodNameList: [], //商品搜索列表
+	            goodSpellList: [], //商品搜索列表
+	
+	            totalCount: "",
+	            totalWeight: "",
+	            carNum: "",
+	            totalVal: "",
+	
+	            selectGoodList: [],
+	
+	            selected: -1
+	
+	        };
 	    },
+	
+	    computed: {},
 	    ready: function ready() {
-	        console.log("hello2");
+	        var self = this;
+	        (0, _jquery2.default)('body').on('click', function () {
+	            self.goodIDList = [];
+	            self.goodNameList = [];
+	            self.goodSpellList = [];
+	        });
+	    },
+	
+	    methods: {
+	
+	        //查找商品  id spell
+	        searchGood: function searchGood(key, cb) {
+	            var self = this;
+	            clearTimeout(Timer);
+	            Timer = setTimeout(function () {
+	                _api2.default.searchGoods(key, function (data) {
+	                    cb && cb(data.goods);
+	                });
+	            }, 500);
+	        },
+	        goodRender: function goodRender(item) {
+	
+	            this.GoodInfo = item;
+	        },
+	
+	        //根据id
+	        searchGoodByName: function searchGoodByName(key) {
+	            var self = this;
+	            this.searchGood(key, function (data) {
+	                self.goodNameList = data;
+	            });
+	        },
+	        searchGoodByID: function searchGoodByID(key) {
+	            var self = this;
+	            this.searchGood(key, function (data) {
+	                self.goodIDList = data;
+	            });
+	        },
+	        searchGoodBySpell: function searchGoodBySpell(key) {
+	            var self = this;
+	            this.searchGood(key, function (data) {
+	                self.goodSpellList = data;
+	            });
+	        },
+	
+	
+	        //添加商品
+	        add: function add() {
+	            var self = this;
+	            if (this.GoodInfo.name && this.GoodInfo.spell && this.price && (this.count_jian || this.count_weight) && this.GoodInfo.supplier) {
+	                if (self.price === '' || isNaN(self.price)) {
+	                    alert('单价需为数值且不能为空');
+	                    return false;
+	                }
+	                if (self.count_jian === '' || isNaN(self.count_jian)) {
+	                    alert('件数需为数值且不能为空');
+	                    return false;
+	                }
+	                if (self.count_weight === '' || isNaN(self.count_weight)) {
+	                    alert('数量需为数值且不能为空');
+	                    return false;
+	                }
+	                this.selectGoodList.push({
+	                    'gId': this.GoodInfo.id,
+	                    "gSpell": this.GoodInfo.spell,
+	                    "gName": this.GoodInfo.name,
+	                    "unit": this.GoodInfo.unit,
+	
+	                    "gSupplier": this.GoodInfo.supplier,
+	                    price: this.price,
+	                    countUnit: this.count_jian,
+	                    count: this.count_weight
+	
+	                });
+	                this.GoodInfo = {};
+	                this.count_jian = "";
+	                this.count_weight = "";
+	                this.price = "";
+	
+	                //总件数，数量，价值
+	                this.getTotal();
+	            } else {
+	                alert('商品信息不全');
+	            }
+	        },
+	        toggleSelect: function toggleSelect(item) {
+	            //console.log('del',index)
+	            if (this.selected != item.gId) {
+	                console.log(item);
+	                this.selected = item.gId;
+	                this.render(item);
+	            } else {
+	                this.selected = -1;
+	            }
+	        },
+	        cancel: function cancel() {
+	            this.GoodInfo = {};
+	            this.price = "";
+	            this.count_jian = "";
+	            this.count_weight = "";
+	            this.selected = -1;
+	        },
+	        render: function render(item) {
+	            console.log(item);
+	            this.GoodInfo = {
+	                id: item.gId,
+	                spell: item.gSpell,
+	                name: item.gName,
+	                unit: item.unit,
+	                supplier: item.gSupplier
+	            };
+	            this.price = item.price;
+	            this.count_jian = item.countUnit;
+	            this.count_weight = item.count;
+	        },
+	
+	        //删除商品
+	        del: function del() {
+	            for (var i = this.delGoodList.length; i--;) {
+	                this.selectGoodList.splice(this.delGoodList[i], 1);
+	                this.delGoodList = [];
+	            }
+	            this.getTotal();
+	        },
+	
+	        //修改商品
+	        correct: function correct() {
+	            if (this.GoodInfo.name && this.GoodInfo.spell && this.price && (this.count_jian || this.count_weight) && this.GoodInfo.supplier) {
+	                this.selectGoodList[this.selected] = {
+	                    'gId': this.GoodInfo.id,
+	                    "gSpell": this.GoodInfo.spell,
+	                    "gName": this.GoodInfo.name,
+	                    "unit": this.GoodInfo.unit,
+	
+	                    "gSupplier": this.GoodInfo.supplier,
+	                    price: this.price,
+	                    countUnit: this.count_jian,
+	                    count: this.count_weight
+	
+	                };
+	
+	                this.getTotal();
+	            } else {
+	                alert('商品信息不全');
+	            }
+	        },
+	        getTotal: function getTotal() {
+	            var total = 0;
+	            var count = 0; // 数量
+	            var unit = 0; //件数
+	            for (var i = this.selectGoodList.length; i--;) {
+	                count = count + (this.selectGoodList[i].count - 0);
+	                unit = unit + (this.selectGoodList[i].countUnit - 0);
+	                if (this.selectGoodList[i].unit == '件') {
+	                    total = total + this.selectGoodList[i].price * this.selectGoodList[i].countUnit;
+	                } else if (this.selectGoodList[i].unit == '公斤') {
+	                    total = total + this.selectGoodList[i].price * this.selectGoodList[i].count;
+	                }
+	            }
+	            this.totalVal = total;
+	            this.totalWeight = count;
+	            this.totalCount = unit;
+	        },
+	        inRecord: function inRecord() {
+	            var self = this;
+	            console.log(self.saleDay);
+	            _api2.default.addInGoods((0, _stringify2.default)({
+	                "type": 1,
+	                "date": self.saleDay,
+	                "totalCountUnit": self.totalCount,
+	                "totalCount": self.totalWeight,
+	                "carNum": self.carNum,
+	                "totalValue": self.totalVal,
+	                "goods": self.selectGoodList
+	            }), function (data) {
+	                alert('记账成功');
+	            }, function () {
+	                alert('记账失败');
+	            });
+	        }
 	    }
-	}; /**
-	    * Created by duoyi on 2016/9/8.
-	    */
-	/**
-	 * Created by duoyi on 2016/9/8.
-	 */
+	}, (0, _defineProperty3.default)(_template$replace$pro, 'ready', function ready() {}), (0, _defineProperty3.default)(_template$replace$pro, 'components', {
+	    datepicker: _datepicker2.default,
+	    dropdown: _dropdown2.default
+	}), _template$replace$pro);
 
 /***/ },
 /* 118 */
@@ -7991,15 +8254,35 @@
 /* 127 */
 /***/ function(module, exports, __webpack_require__) {
 
-	"use strict";
+	'use strict';
 	
 	Object.defineProperty(exports, "__esModule", {
 	    value: true
 	});
 	
+	var _stringify = __webpack_require__(8);
+	
+	var _stringify2 = _interopRequireDefault(_stringify);
+	
+	var _jquery = __webpack_require__(11);
+	
+	var _jquery2 = _interopRequireDefault(_jquery);
+	
 	var _template = __webpack_require__(128);
 	
 	var _template2 = _interopRequireDefault(_template);
+	
+	var _dropdown = __webpack_require__(13);
+	
+	var _dropdown2 = _interopRequireDefault(_dropdown);
+	
+	var _pagination = __webpack_require__(15);
+	
+	var _pagination2 = _interopRequireDefault(_pagination);
+	
+	var _api = __webpack_require__(21);
+	
+	var _api2 = _interopRequireDefault(_api);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
@@ -8009,17 +8292,192 @@
 	
 	    replace: true,
 	
-	    props: {},
+	    props: [],
 	
 	    data: function data() {
-	        return {};
+	        return {
+	            name: "",
+	            goodNameList: [],
+	            packFee: "",
+	            weightFee: "",
+	            unitFee: "",
+	            price1: 0,
+	            price2: 0,
+	            price3: 0,
+	            price4: 0,
+	            price5: 0,
+	            percent1: 0,
+	            percent2: 0,
+	            percent3: 0,
+	            percent4: 0,
+	            percent5: 0,
+	
+	            supplier: "",
+	            supplierList: [],
+	            supplierInfo: {}, //商品
+	
+	            selected: -1
+	            // mypage:{page:1,size:10,totalCount:0},
+	
+	
+	        };
 	    },
+	
+	    watch: {},
+	
 	    ready: function ready() {
-	        console.log("hello2");
+	        var self = this;
+	        (0, _jquery2.default)('body').on('click', function () {
+	            self.supplierList = [];
+	            self.goodNameList = [];
+	        });
+	        // this.search()
+	    },
+	
+	    methods: {
+	        search: function search() {
+	            var self = this;
+	            _api2.default.checkSupplier({}, function (data) {
+	                self.supplierList = data.suppliers;
+	            });
+	        },
+	
+	        //供货商
+	        searchSupplier: function searchSupplier() {
+	            var self = this;
+	            _api2.default.searchSuppliers({}, function (data) {
+	                self.supplierList = data.suppliers;
+	                self.name = '';
+	            });
+	        },
+	        SupplierRender: function SupplierRender(item) {
+	            this.supplier = item.name;
+	        },
+	
+	        //商品
+	        searchGood: function searchGood(key, cb) {
+	            var self = this;
+	            window.Timer233 && clearTimeout(window.Timer233);
+	            window.Timer233 = setTimeout(function () {
+	                _api2.default.searchGoods(key, function (data) {
+	                    cb && cb(data.goods);
+	                });
+	            }, 500);
+	        },
+	        goodRender: function goodRender(item) {
+	
+	            this.name = item.name;
+	            this.supplier = item.supplier;
+	        },
+	
+	        //根据id
+	        searchGoodByName: function searchGoodByName(key) {
+	            var self = this;
+	            this.searchGood(key, function (data) {
+	                var arr = [];
+	                if (!self.supplier) {
+	                    self.goodNameList = data;
+	                } else {
+	                    for (var i = data.length; i--;) {
+	                        if (data[i].supplier == self.supplier) {
+	                            arr.push(data[i]);
+	                        }
+	                    }
+	                    self.goodNameList = arr;
+	                }
+	            });
+	        },
+	        add: function add() {
+	            var self = this;
+	            if (this.name && this.supplier && this.type) {
+	                if (!this.name) {
+	                    alert('商品名不能为空');
+	                    return false;
+	                }
+	                if (this.weightFee && isNaN(this.weightFee)) {
+	                    alert('过磅费需为数值');
+	                    return false;
+	                }
+	                if (this.packFee && isNaN(this.packFee)) {
+	                    alert('包装费需为数值');
+	                    return false;
+	                }
+	                _api2.default.addResultWay((0, _stringify2.default)({
+	                    "weighFee": self.weightFee,
+	                    "packFee": self.packFee,
+	                    "type": self.type - 0,
+	                    "unitFee": self.unitFee,
+	                    "price1": self.price1,
+	                    "price2": self.price2,
+	                    "price3": self.price3,
+	                    "price4": self.price4,
+	                    "price5": self.price5,
+	                    "percentage1": self.percent1,
+	                    "percentage2": self.percent2,
+	                    "percentage3": self.percent3,
+	                    "percentage4": self.percent4,
+	                    "percentage5": self.percent5
+	                }), function (data) {
+	                    alert('添加成功');
+	                });
+	            } else {
+	                alert('提成信息不全');
+	            }
+	        },
+	        toggleSelect: function toggleSelect(item) {
+	            if (this.selected != item.id) {
+	                this.selected = item.id;
+	                this.render(item);
+	            } else {
+	                this.selected = -1;
+	            }
+	        },
+	        render: function render(item) {
+	            this.supplierInfo = item;
+	        },
+	
+	        //删除商品
+	        del: function del() {
+	            var self = this;
+	            _api2.default.delCustomer({}, function (data) {});
+	            self.search();
+	            self.selected = -1;
+	        },
+	
+	        //修改商品
+	        correct: function correct() {
+	            var self = this;
+	            if (this.supplierInfo.phone && isNaN(this.supplierInfo.phone)) {
+	                alert('手机格式有误');
+	                return false;
+	            }
+	            _api2.default.updateSupplier((0, _stringify2.default)(self.supplierInfo), function (data) {
+	                self.search();
+	            });
+	            self.selected = -1;
+	            this.supplierInfo = {};
+	        },
+	        cancel: function cancel() {
+	            if (this.selected != -1) {
+	                this.supplierInfo = {};
+	            }
+	            this.selected = -1;
+	            this.search();
+	        },
+	        checkResult: function checkResult() {}
+	    },
+	    components: {
+	        dropdown: _dropdown2.default
+	        // mypage
 	    }
-	}; /**
-	    * Created by duoyi on 2016/9/8.
-	    */
+	
+	};
+	/*
+	 import datepicker from '../../../componment/datepicker'
+	 */
+	/**
+	 * Created by duoyi on 2016/9/8.
+	 */
 	/**
 	 * Created by duoyi on 2016/9/8.
 	 */
@@ -8028,7 +8486,7 @@
 /* 128 */
 /***/ function(module, exports) {
 
-	module.exports = "<section id=\"ticheng-section\" class=\"section js-section \">\r\n    <header class=\"section-header\">\r\n        <div class=\"section-wrapper\">\r\n            <div class=\"row\">\r\n                <div class=\"col-lg-9\">\r\n                    <p class=\"help-block\">商品列表</p>\r\n                    <div class=\"row\">\r\n                        <div class=\"col-xs-12\">\r\n                            <table class=\"table table-striped table-bordered table-hover\" id=\"dataTables-example\">\r\n                                <thead>\r\n                                <tr>\r\n                                    <th>ID</th>\r\n                                    <th>名称</th>\r\n                                    <th>供货商</th>\r\n                                    <th>包装费</th>\r\n                                    <th>过磅费</th>\r\n                                    <th>提成方式</th>\r\n                                    <th>< 单价1</th>\r\n                                    <th>百分比1</th>\r\n                                    <th>< 单价2</th>\r\n                                    <th>百分比2</th>\r\n                                    <th>< 单价3</th>\r\n                                    <th>百分比3</th>\r\n                                    <th>< 单价4</th>\r\n                                    <th>百分比4</th>\r\n                                    <th>< 单价5</th>\r\n                                    <th>百分比5</th>\r\n\r\n                                </tr>\r\n                                </thead>\r\n                                <tbody>\r\n                                <tr class=\"odd gradeX\">\r\n                                    <td>小白菜</td>\r\n                                    <td class=\"center\">2</td>\r\n                                    <td >2</td>\r\n                                    <td>4</td>\r\n                                    <td>江南</td>\r\n                                    <td>江南</td>\r\n                                    <td>小白菜</td>\r\n                                    <td class=\"center\">2</td>\r\n                                    <td >2</td>\r\n                                    <td>4</td>\r\n                                    <td>江南</td>\r\n                                    <td>江南</td>\r\n                                    <td>江南</td>\r\n                                    <td>江南</td>\r\n                                    <td>江南</td>\r\n                                    <td>江南</td>\r\n\r\n                                </tr>\r\n\r\n                                </tbody>\r\n                            </table>\r\n                        </div>\r\n                    </div>\r\n                </div>\r\n                <div class=\"col-lg-3\">\r\n\r\n                    <div class=\"panel panel-default\">\r\n                        <div class=\"panel-heading\">\r\n                            提成结算方式\r\n                        </div>\r\n                        <div class=\"panel-body\">\r\n                            <div class=\"row\">\r\n                                <div class=\"col-sm-6 minWidth100\">\r\n                                    <div class=\"form-group \">\r\n                                        <label>供货商</label>\r\n                                        <input class=\"form-control inlineInput\" >\r\n                                        <!--\r\n                                         <p class=\"help-block\">Example block-level help text here.</p>\r\n                                        -->\r\n                                    </div>\r\n                                    <div class=\"form-group \">\r\n                                        <label>商品</label>\r\n                                        <input class=\"form-control inlineInput\" >\r\n                                    </div>\r\n\r\n                                </div>\r\n                                <hr>\r\n                                <div class=\"col-sm-6 minWidth100\">\r\n                                    <div class=\"form-group \">\r\n                                        <label>&nbsp;&nbsp;&nbsp;包装费</label>\r\n                                        <input class=\"form-control inlineInput\" >\r\n\r\n                                    </div>\r\n                                    <div class=\"form-group \">\r\n                                        <label>过磅费</label>\r\n                                        <input class=\"form-control inlineInput\" >\r\n                                    </div>\r\n\r\n                                </div>\r\n                                <div class=\"col-sm-6 minWidth100\">\r\n                                    <div class=\"form-group \">\r\n                                        <label>按件</label>\r\n                                        <input class=\"form-control inlineInput\" >\r\n\r\n                                    </div>\r\n\r\n                                </div>\r\n                                <div class=\"col-sm-6 minWidth100\">\r\n                                    <div class=\"form-group \">\r\n                                        <label>单价1</label>\r\n                                        <input class=\"form-control inlineInput\" >\r\n                                        ％\r\n                                        <input class=\"form-control inlineInput\" >\r\n\r\n                                    </div>\r\n                                    <div class=\"form-group \">\r\n                                        <label>单价2</label>\r\n                                        <input class=\"form-control inlineInput\" >\r\n                                        ％\r\n                                        <input class=\"form-control inlineInput\" >\r\n                                    </div>\r\n\r\n\r\n                                </div>\r\n                                <div class=\"col-sm-6 minWidth100\">\r\n                                    <div class=\"form-group \">\r\n                                        <label>单价3</label>\r\n                                        <input class=\"form-control inlineInput\" >\r\n                                        ％\r\n                                        <input class=\"form-control inlineInput\" >\r\n\r\n                                    </div>\r\n                                    <div class=\"form-group \">\r\n                                        <label>单价4</label>\r\n                                        <input class=\"form-control inlineInput\" >\r\n                                        ％\r\n                                        <input class=\"form-control inlineInput\" >\r\n                                    </div>\r\n\r\n\r\n                                </div>\r\n                                <div class=\"col-sm-6 minWidth100\">\r\n                                    <div class=\"form-group \">\r\n                                        <label>单价5</label>\r\n                                        <input class=\"form-control inlineInput\" >\r\n                                        ％\r\n                                        <input class=\"form-control inlineInput\" >\r\n\r\n                                    </div>\r\n\r\n\r\n                                </div>\r\n                                <div class=\"col-xs-12\">\r\n                                    <button type=\"button\" class=\"btn btn-primary\" style=\"width: 72px\"> 更改</button>\r\n                                </div>\r\n\r\n\r\n                            </div>\r\n\r\n\r\n\r\n\r\n\r\n\r\n                            <!-- /.row (nested) -->\r\n                        </div>\r\n                        <!-- /.panel-body -->\r\n                    </div>\r\n                    <!-- /.panel -->\r\n\r\n                </div>\r\n\r\n                <!-- /.col-lg-12 -->\r\n            </div>\r\n        </div>\r\n    </header>\r\n</section>\r\n";
+	module.exports = "<section id=\"ticheng-section\" class=\"section js-section \">\r\n    <header class=\"section-header\">\r\n        <div class=\"section-wrapper\">\r\n            <div class=\"row\">\r\n                <div class=\"col-lg-9\">\r\n                    <p class=\"help-block\">商品列表</p>\r\n                    <div class=\"row\">\r\n                        <div class=\"col-xs-12\">\r\n                            <table class=\"table table-striped table-bordered table-hover\" id=\"dataTables-example\">\r\n                                <thead>\r\n                                <tr>\r\n                                    <th>名称</th>\r\n                                    <th>供货商</th>\r\n                                    <th>包装费</th>\r\n                                    <th>过磅费</th>\r\n                                    <th>提成方式</th>\r\n                                    <th>提成结算</th>\r\n\r\n                                </tr>\r\n                                </thead>\r\n                                <tbody>\r\n                                <tr class=\"odd gradeX\">\r\n                                    <td class=\"center\">小白菜</td>\r\n                                    <td >信息</td>\r\n                                    <td>4</td>\r\n                                    <td>2</td>\r\n                                    <td>按件</td>\r\n                                    <td>4</td>\r\n\r\n                                </tr>\r\n                                <tr class=\"odd gradeX\">\r\n                                    <td class=\"center\">小白菜</td>\r\n                                    <td >信息</td>\r\n                                    <td>4</td>\r\n                                    <td>2</td>\r\n                                    <td>按件</td>\r\n                                    <td>\r\n                                        <p>单价：23  百分比：23%</p>\r\n                                        <p>单价：23  百分比：23%</p>\r\n                                        <p>单价：23  百分比：23%</p>\r\n                                    </td>\r\n\r\n                                </tr>\r\n\r\n                                </tbody>\r\n                            </table>\r\n                        </div>\r\n                    </div>\r\n                </div>\r\n                <div class=\"col-lg-3\">\r\n\r\n                    <div class=\"panel panel-default\">\r\n                        <div class=\"panel-heading\">\r\n                            提成结算方式\r\n                        </div>\r\n                        <div class=\"panel-body\">\r\n                            <div class=\"row\">\r\n                                <div class=\"col-sm-6 minWidth100\">\r\n                                    <div class=\"form-group \">\r\n                                        <label>供货商</label>\r\n                                        <dropdown placeholder=\"选择供应商\"\r\n                                                  :word.sync=\"supplier\"\r\n                                                  :list.sync=\"supplierList\"\r\n                                                  @search=\"searchSupplier\"\r\n                                                  @select=\"SupplierRender\"\r\n                                        ></dropdown>\r\n                                    </div>\r\n                                    <div class=\"form-group \">\r\n                                        <label>商品</label>\r\n                                        <dropdown placeholder=\"请输入商品名称\"\r\n                                                  :word.sync=\"name\"\r\n                                                  :list.sync=\"goodNameList\"\r\n                                                  @search=\"searchGoodByName\"\r\n                                                  @select=\"goodRender\"\r\n                                        ></dropdown>\r\n                                    </div>\r\n\r\n                                </div>\r\n                                <hr>\r\n                                <div class=\"col-sm-6 minWidth100\">\r\n                                    <div class=\"form-group \">\r\n                                        <label>&nbsp;&nbsp;&nbsp;包装费</label>\r\n                                        <input class=\"form-control inlineInput\" v-model=\"packFee\">\r\n\r\n                                    </div>\r\n                                    <div class=\"form-group \">\r\n                                        <label>过磅费</label>\r\n                                        <input class=\"form-control inlineInput\" v-model=\"weightFee\">\r\n                                    </div>\r\n\r\n                                </div>\r\n                                <div class=\"col-sm-6 minWidth100\">\r\n                                    <div class=\"form-group \">\r\n                                        <label>结算方式</label>\r\n                                        <select style=\"width: 100%;height: 30px\" v-model=\"type\">\r\n                                            <option value=\"1\">件</option>\r\n                                            <option value=\"2\">单价</option>\r\n                                        </select>\r\n\r\n                                    </div>\r\n\r\n                                </div>\r\n                                <div class=\"col-sm-6 minWidth100\">\r\n                                    <div class=\"form-group \">\r\n                                        <label>件数提成</label>\r\n                                        <input class=\"form-control inlineInput\" v-model=\"unitFee\">\r\n\r\n                                    </div>\r\n\r\n                                </div>\r\n                             </div>\r\n                            <div class=\"row\">\r\n                                <div class=\"col-sm-6 \">\r\n                                    <div class=\"form-group \">\r\n                                        <label>单价1</label>\r\n                                        <input class=\"form-control inlineInput\" v-model=\"price1\">\r\n                                    </div>\r\n                                </div>\r\n                                <div class=\"col-sm-6 \">\r\n                                    <div class=\"form-group \">\r\n                                        <label>百分比</label>\r\n                                        <input class=\"form-control inlineInput\" style=\"width: 50px;min-width: 0\"\r\n                                               v-model=\"percent1\"\r\n                                        > ％\r\n                                    </div>\r\n                                </div>\r\n                            </div>\r\n                            <div class=\"row\">\r\n                                <div class=\"col-sm-6 \">\r\n                                    <div class=\"form-group \">\r\n                                        <label>单价2</label>\r\n                                        <input class=\"form-control inlineInput\" v-model=\"price2\">\r\n                                    </div>\r\n                                </div>\r\n                                <div class=\"col-sm-6 \">\r\n                                    <div class=\"form-group \">\r\n                                        <label>百分比</label>\r\n                                        <input class=\"form-control inlineInput\" style=\"width: 50px;min-width: 0\"\r\n                                               v-model=\"percent2\"\r\n                                        > ％\r\n                                    </div>\r\n                                </div>\r\n                            </div>\r\n                            <div class=\"row\">\r\n                                <div class=\"col-sm-6 \">\r\n                                    <div class=\"form-group \">\r\n                                        <label>单价3</label>\r\n                                        <input class=\"form-control inlineInput\" v-model=\"price3\">\r\n                                    </div>\r\n                                </div>\r\n                                <div class=\"col-sm-6 \">\r\n                                    <div class=\"form-group \">\r\n                                        <label>百分比</label>\r\n                                        <input class=\"form-control inlineInput\" style=\"width: 50px;min-width: 0\"\r\n                                               v-model=\"percent3\"\r\n                                        > ％\r\n                                    </div>\r\n                                </div>\r\n                            </div>\r\n                            <div class=\"row\">\r\n                                <div class=\"col-sm-6 \">\r\n                                    <div class=\"form-group \">\r\n                                        <label>单价4</label>\r\n                                        <input class=\"form-control inlineInput\" v-model=\"price4\">\r\n                                    </div>\r\n                                </div>\r\n                                <div class=\"col-sm-6 \">\r\n                                    <div class=\"form-group \">\r\n                                        <label>百分比</label>\r\n                                        <input class=\"form-control inlineInput\" style=\"width: 50px;min-width: 0\"\r\n                                               v-model=\"percent4\"\r\n                                        > ％\r\n                                    </div>\r\n                                </div>\r\n                            </div>\r\n                            <div class=\"row\">\r\n                                <div class=\"col-sm-6 \">\r\n                                    <div class=\"form-group \">\r\n                                        <label>单价5</label>\r\n                                        <input class=\"form-control inlineInput\" v-model=\"price5\">\r\n                                    </div>\r\n                                </div>\r\n                                <div class=\"col-sm-6 \">\r\n                                    <div class=\"form-group \">\r\n                                        <label>百分比</label>\r\n                                        <input class=\"form-control inlineInput\" style=\"width: 50px;min-width: 0\"\r\n                                               v-model=\"percent5\"\r\n                                        > ％\r\n                                    </div>\r\n                                </div>\r\n                            </div>\r\n                            <div class=\"row\">\r\n                                <div class=\"col-xs-12\">\r\n                                    <button type=\"button\" class=\"btn btn-primary\" style=\"width: 72px\"\r\n                                    @click=\"add\"\r\n                                    > 添加</button>\r\n                                    <button type=\"button\" class=\"btn btn-primary\" style=\"width: 72px;margin-left: 10px\"> 更改</button>\r\n                                </div>\r\n                            </div>\r\n\r\n\r\n\r\n\r\n\r\n\r\n                            <!-- /.row (nested) -->\r\n                        </div>\r\n                        <!-- /.panel-body -->\r\n                    </div>\r\n                    <!-- /.panel -->\r\n\r\n                </div>\r\n\r\n                <!-- /.col-lg-12 -->\r\n            </div>\r\n        </div>\r\n    </header>\r\n</section>\r\n";
 
 /***/ },
 /* 129 */

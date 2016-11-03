@@ -366,6 +366,7 @@ export default {
             data: data
         }, cb)
     },
+
     //查询
 
     //添加用户
@@ -377,7 +378,21 @@ export default {
     //查询现存金额
 
     //增加结算方式
+    addResultWay(data,cb,fail){
+        AJAX({
+            type: 'POST',
+            url: 'suppliers/settlement',
+            data: data
+        }, cb,fail)
+    },
     //查询结算方式
+    CheckResultWay(data,cb,fail){
+        AJAX({
+            type: 'GET',
+            url: 'suppliers/settlement',
+            data: data
+        }, cb,fail)
+    }
     //删除结算方式
     //报表按供货商
     //报表按商品

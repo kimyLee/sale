@@ -264,12 +264,12 @@ export default {
                     unit: self.selectGoodList[i].danWei
                 })
             }
-            api.searchCustomer(JSON.stringify({
+            api.sale(JSON.stringify({
                 cId: self.cusCode,
                 cName:self.Cname,
                 cSpell:self.CPinyin,
-                appearanceFee:self.appearFee,
-                carFee:self.trafficFee,
+                appearanceFee:self.appearFee-0,
+                carFee:self.trafficFee-0,
                 date:self.saleDay,
                 shishou:self.factFee,
                 storeList: arr,
