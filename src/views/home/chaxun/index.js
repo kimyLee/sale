@@ -93,26 +93,7 @@ export default {
             })
         },
         checkList(){
-            var self = {
-                appearanceFee: "2",
-                cId: 3,
-                cName: "小红",
-                cSpell: "xiaohong",
-                carFee: "1",
-                date: "",
-                shishou: "14",
-                storeList: [{
-                    count: 3,
-                    countUnit: 1.0,
-                    gId: 12,
-                    gName: "小白菜",
-                    gPrice: 2.0,
-                    gSpell: "qww",
-                    gSupplier: "城北",
-                    money: 14
-                }],
-                totalMoney: 14
-            };
+            var self = this;
             api.checkGoodsSale({
                 startDate:self.beginDate,
                 endDate:self.endDate,

@@ -88,6 +88,7 @@ export default {
             console.log(this.feeInfo);
             if(this.feeInfo.name&&this.feeInfo.spell&&this.feeInfo.id&&this.feeInfo.date
                 &&this.feeInfo.supplier&&this.feeInfo.money){
+                this.feeInfo.money=this.feeInfo.money-0;
                 this.confirm()
                 //this.selectFeeList.push(common.deepClone(this.feeInfo))
             }else {

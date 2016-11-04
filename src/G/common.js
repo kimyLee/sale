@@ -28,6 +28,10 @@ const COMMON = {
         o.toString = obj.toString;
         o.valueOf = obj.valueOf;
         return o;
+    },
+    timeTranslate(time){
+        let date = new Date(time);
+        return date.getFullYear()+"-"+(date.getMonth()+1)+"-"+date.getDate();
     }
 
 }

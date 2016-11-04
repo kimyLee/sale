@@ -42,12 +42,12 @@ export default {
     methods:{
         search(){
             var self = this;
-            api.checkTransferMoney({
+            /*api.checkTransferMoney({
                 startDate:self.begin,
                 endDate:self.end
             },function (data) {
                 self.list=data.transfers;
-            })
+            })*/
         },
         getMoney(){
             api.addCustomer(JSON.stringify(this.info),function (data) {

@@ -18,7 +18,7 @@ function myAJAX(opt,success,fail) {
                 success&&success(data)
             }else{
                 //todo:全局弹窗方法
-                alert(data.msg)
+               // alert(data.msg)
             }
         })
         .fail(function (data) {

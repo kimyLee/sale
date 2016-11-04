@@ -75,6 +75,7 @@ export default {
         //供货商
         searchSupplier(){
             var self=this;
+            self.goodNameList=[];
             api.searchSuppliers({
 
             },function (data) {
@@ -88,6 +89,7 @@ export default {
         //商品
         searchGood(key,cb){
             var self = this;
+            self.supplierList=[];
             window.Timer233&&clearTimeout(window.Timer233);
             window.Timer233=setTimeout(function () {
                 api.searchGoods(key,function (data) {
@@ -137,20 +139,20 @@ export default {
                     return false
                 }
                 api.addResultWay(JSON.stringify({
-                    "weighFee": self.weightFee,
-                    "packFee": self.packFee,
+                    "weighFee": self.weightFee-0,
+                    "packFee": self.packFee-0,
                     "type": self.type-0,
-                    "unitFee": self.unitFee,
-                    "price1": self.price1,
-                    "price2": self.price2,
-                    "price3": self.price3,
-                    "price4": self.price4,
-                    "price5": self.price5,
-                    "percentage1": self.percent1,
-                    "percentage2": self.percent2,
-                    "percentage3": self.percent3,
-                    "percentage4": self.percent4,
-                    "percentage5": self.percent5
+                    "unitFee": self.unitFee-0,
+                    "price1": self.price1-0,
+                    "price2": self.price2-0,
+                    "price3": self.price3-0,
+                    "price4": self.price4-0,
+                    "price5": self.price5-0,
+                    "percentage1": (self.percent1-0),
+                    "percentage2": self.percent2-0,
+                    "percentage3": self.percent3-0,
+                    "percentage4": self.percent4-0,
+                    "percentage5": self.percent5-0
                 }),function (data) {
                     alert('添加成功');
                 })

@@ -13,7 +13,7 @@ export default {
 
     replace: true,
 
-    props:['date'],
+    props:['date','readonly'],
 
     data () {
         return {

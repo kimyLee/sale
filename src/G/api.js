@@ -151,11 +151,13 @@ export default {
             type:'GET',
             url:'sales/query',
             data:data
-        },cb)
+        }).done(function (d) {
+            cb&&cb(d)
+        })
     },
 
     //销售单详情信息 sales/detail?id=10
-    checkSaleTicket (data , cb) {
+    checkSaleTicketById (data , cb) {
         AJAX({
             type:'GET',
             url:'sales/detail',

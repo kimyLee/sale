@@ -145,7 +145,7 @@ export default {
                     "cId": self.cusCode-0,
                     "cSpell": self.CPinyin,
                     "cName": self.Cname,
-                    "money":(self.loan-0)+0.0000000001,
+                    "money":(self.loan-0),
                     "supplier":self.supplier,
                     "type": 1,
                     "remark": self.remark
