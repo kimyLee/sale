@@ -3,132 +3,46 @@
 <head>
   <meta charset="utf-8">
 
-  <link rel="stylesheet" href="assets/css/variables.css">
-  <link rel="stylesheet" href="assets/css/nativize.css">
-  <link rel="stylesheet" href="assets/css/global.css">
-  <link rel="stylesheet" href="assets/css/about.css">
-  <link rel="stylesheet" href="assets/css/nav.css">
-  <link rel="stylesheet" href="assets/css/section.css">
-  <link rel="stylesheet" href="assets/css/demo.css">
-  <link rel="stylesheet" href="assets/css/github.css">
-  <!--我的部分-->
-  <link href="assets/bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
-  <!-- MetisMenu CSS -->
-  <link href="assets/bower_components/metisMenu/dist/metisMenu.min.css" rel="stylesheet">
-  <!-- Custom CSS -->
-  <link href="assets/distCom/css/sb-admin-2.css" rel="stylesheet">
-  <link href="assets/lib/jquery-ui.min.css" rel="stylesheet">
-  <!-- Custom Fonts -->
-  <link href="assets/bower_components/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+  <style>
 
+    .myTicket{
+      display: none;
+      
+      position: fixed;
+      top:0;
+      left: 0;
 
-  <link rel="import" href="sections/xiaoshou/xiadan.html">
-  <link rel="import" href="sections/xiaoshou/stopOption.html">
-  <link rel="import" href="sections/xiaoshou/mingxi.html">
-  <link rel="import" href="sections/xiaoshou/chaxun.html">
-  <link rel="import" href="sections/kehu/cha.html">
-  <link rel="import" href="sections/kehu/huang.html">
-  <link rel="import" href="sections/kehu/jie.html">
-  <link rel="import" href="sections/kehu/kehuOption.html">
-  <link rel="import" href="sections/origin/baosun.html">
-  <link rel="import" href="sections/origin/jinhuo.html">
-  <link rel="import" href="sections/origin/kucun.html">
-  <link rel="import" href="sections/fee/feeDetail.html">
-  <link rel="import" href="sections/fee/feeOption.html">
-  <link rel="import" href="sections/fee/makeFee.html">
-  <link rel="import" href="sections/report/checkReport.html">
-  <link rel="import" href="sections/supply/supplyOption.html">
-  <link rel="import" href="sections/supply/ticheng.html">
-  <link rel="import" href="sections/supply/zhuanzhang.html">
-
+    }
+    .myTicket .mytitle{
+      text-align: center;
+    }
+    @media print {
+      .noprint { display: none; }
+      .print-Show{display: block!important;}
+    }
+  </style>
 </head>
 <body>
-
-<nav class="nav js-nav">
-  <header class="nav-header">
-    <h1 class="nav-title">收银系统 <strong>2.0</strong></h1>
-    <svg class="nav-header-icon"><use xlink:href="assets/img/icons.svg#icon-electron"></use></svg>
-  </header>
-
-  <div class="nav-item u-category-windows">
-    <h5 class="nav-category">
-      <svg class="nav-icon"><use xlink:href="assets/img/icons.svg#icon-windows"></use></svg>
-      <b>销售管理</b>
-    </h5>
-    <button type="button" id="button-xiadan" data-section="xiadan" class="nav-button"><em>下单</em></button>
-    <button type="button" id="button-chaxun" data-section="chaxun" class="nav-button"><em>销售查询</em></button>
-    <button type="button" id="button-mingxi" data-section="mingxi" class="nav-button"><em>销售明细</em></button>
-    <button type="button" id="button-stopOption" data-section="stopOption" class="nav-button"><em>商品管理</em></button>
-  </div>
-
-  <div class="nav-item u-category-menu">
-    <h5 class="nav-category">
-      <svg class="nav-icon"><use xlink:href="assets/img/icons.svg#icon-menu"></use></svg>
-      <b>客户</b>
-    </h5>
-    <button type="button" id="button-jie" data-section="jie" class="nav-button"> <em>借款</em> </button>
-    <button type="button" id="button-huang" data-section="huang" class="nav-button"><em>还款</em></button>
-    <button type="button" id="button-cha" data-section="cha" class="nav-button"><em>欠款查询</em></button>
-    <button type="button" id="button-kehuOption" data-section="kehuOption" class="nav-button"><em>客户管理</em></button>
-  </div>
-
-  <div class="nav-item u-category-native-ui">
-    <h5 class="nav-category">
-      <svg class="nav-icon"><use xlink:href="assets/img/icons.svg#icon-native-ui"></use></svg>
-      <b>费用</b></h5>
-    <button type="button" id="button-makeFee" data-section="makeFee" class="nav-button"> <em>添加费用</em> </button>
-    <button type="button" id="button-feeDetail" data-section="feeDetail" class="nav-button"> <em>费用明细</em></button>
-    <button type="button" id="button-feeOption" data-section="feeOption" class="nav-button"> <em>费用管理</em></button>
-  </div>
-
-  <div class="nav-item u-category-communication">
-    <h5 class="nav-category">
-      <svg class="nav-icon"><use xlink:href="assets/img/icons.svg#icon-communication"></use></svg>
-       <b>仓库</b>
-    </h5>
-    <button type="button" id="button-jinhuo" data-section="jinhuo" class="nav-button"><em>进货</em></button>
-    <button type="button" id="button-kucun" data-section="kucun" class="nav-button"><em>报损</em></button>
-    <button type="button" id="button-baosun" data-section="baosun" class="nav-button"><em>库存</em></button>
-  </div>
-  <div class="nav-item u-category-system">
-    <h5 class="nav-category">
-      <svg class="nav-icon"><use xlink:href="assets/img/icons.svg#icon-system"></use></svg>
-       <b>报表</b>
-    </h5>
-    <button type="button" id="button-checkReport" data-section="checkReport" class="nav-button" > <em>查看报表</em></button>
-  </div>
-
-  <div class="nav-item u-category-media">
-    <h5 class="nav-category">
-      <svg class="nav-icon"><use xlink:href="assets/img/icons.svg#icon-media"></use></svg>
-       <b>供应商</b>
-    </h5>
-    <button type="button" id="button-ticheng" data-section="ticheng" class="nav-button"><em>提成结算</em></button>
-    <button type="button" id="button-zhuanzhang" data-section="zhuanzhang" class="nav-button"><em>转账</em></button>
-    <button type="button" id="button-supplyOption" data-section="supplyOption" class="nav-button"><em>供应商管理</em></button>
-  </div>
-
-  <footer class="nav-footer">
-    <button type="button" id="button-about" data-modal="about" class="nav-footer-button">About</button>
-    <a class="nav-footer-logo" href="https://github.com" aria-label="Homepage">
-      <svg class="nav-footer-icon"><use xlink:href="assets/img/icons.svg#icon-love"></use></svg>
-    </a>
-  </footer>
-</nav>
-<main class="content js-content"></main>
-<script>window.$ = window.jQuery = require('./assets/lib/jquery-1.11.2.min.js');</script>
 <script>
-  require('./assets/lib/jquery-ui.min.js')
+  function myprint() {
+    window.print()
+  }
 </script>
-<!--<script src="assets/lib/jquery-1.11.2.min.js"></script>
-<script src="assets/lib/jquery-ui.min.js"></script>-->
-<script>
-  require('./assets/imports')
-  require('./assets/ex-links')
-  require('./assets/nav')
- // require('./assets/demo-btns')
-  require('./assets/code-blocks')
-  require('./assets/normalize-shortcuts')
-</script>
+<button class="noprint" onclick="myprint()">打印</button>
+<div  class="myTicket print-Show">
+  <p class="mytitle">hello word</p>
+  <hr>
+  <p>are you ok</p>
+  <p>are you ok</p>
+  <p>are you ok</p>
+  <p>are you ok</p>
+  <p>are you ok</p>
+  <p>are you ok</p>
+  <p>are you ok</p>
+  <p>are you ok</p>
+  <p>are you ok</p>
+</div>
+
+
 </body>
 </html>

@@ -1,9 +1,4 @@
-/**
- * Created by duoyi on 2016/9/8.
- */
-/**
- * Created by duoyi on 2016/9/8.
- */
+
 import html from './template.html'
 
 export default {

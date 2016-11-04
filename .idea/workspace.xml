@@ -2,23 +2,20 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="66e7ee76-300a-40f6-83cc-088d28d68457" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/componment/printTicket/index.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/componment/printTicket/style.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/componment/printTicket/template.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/build.js" afterPath="$PROJECT_DIR$/build/build.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/build.js.map" afterPath="$PROJECT_DIR$/build/build.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/G/api.js" afterPath="$PROJECT_DIR$/src/G/api.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/G/common.js" afterPath="$PROJECT_DIR$/src/G/common.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/G/promise.js" afterPath="$PROJECT_DIR$/src/G/promise.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/componment/datepicker/index.js" afterPath="$PROJECT_DIR$/src/componment/datepicker/index.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/componment/datepicker/template.html" afterPath="$PROJECT_DIR$/src/componment/datepicker/template.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/views/fee/feedan/index.js" afterPath="$PROJECT_DIR$/src/views/fee/feedan/index.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/views/home/chaxun/index.js" afterPath="$PROJECT_DIR$/src/views/home/chaxun/index.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/views/home/mingxi/index.js" afterPath="$PROJECT_DIR$/src/views/home/mingxi/index.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/views/home/mingxi/template.html" afterPath="$PROJECT_DIR$/src/views/home/mingxi/template.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.html" afterPath="$PROJECT_DIR$/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index2323.html" afterPath="$PROJECT_DIR$/index2323.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/componment/side/index.js" afterPath="$PROJECT_DIR$/src/componment/side/index.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/componment/side/template.html" afterPath="$PROJECT_DIR$/src/componment/side/template.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/views/home/xiadan/index.js" afterPath="$PROJECT_DIR$/src/views/home/xiadan/index.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/views/home/xiadan/template.html" afterPath="$PROJECT_DIR$/src/views/home/xiadan/template.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/views/kehu/huangkuan/index.js" afterPath="$PROJECT_DIR$/src/views/kehu/huangkuan/index.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/views/kehu/jiekuan/index.js" afterPath="$PROJECT_DIR$/src/views/kehu/jiekuan/index.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/views/supply/result/index.js" afterPath="$PROJECT_DIR$/src/views/supply/result/index.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/views/supply/zhuanzhang/index.js" afterPath="$PROJECT_DIR$/src/views/supply/zhuanzhang/index.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/views/index.html" afterPath="$PROJECT_DIR$/src/views/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/views/index.js" afterPath="$PROJECT_DIR$/src/views/index.js" />
     </list>
     <ignored path="收银10-22.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -39,111 +36,105 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="index.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/views/home/mingxi/index.js">
+      <file leaf-file-name="template.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/componment/side/template.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="295">
-              <caret line="209" column="31" selection-start-line="209" selection-start-column="31" selection-end-line="209" selection-end-column="31" />
-              <folding>
-                <element signature="e#82#104#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="index.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/views/kehu/huangkuan/index.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="320">
-              <caret line="147" column="42" selection-start-line="147" selection-start-column="42" selection-end-line="147" selection-end-column="42" />
+            <state relative-caret-position="0">
+              <caret line="0" column="32" selection-start-line="0" selection-start-column="32" selection-end-line="0" selection-end-column="32" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="template.html" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/views/home/xiadan/template.html">
+      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/views/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="600">
-              <caret line="240" column="67" selection-start-line="240" selection-start-column="67" selection-end-line="240" selection-end-column="67" />
+            <state relative-caret-position="638">
+              <caret line="29" column="61" selection-start-line="29" selection-start-column="61" selection-end-line="29" selection-end-column="61" />
               <folding>
-                <element signature="n#style#0;n#button#1;n#div#2;n#div#4;n#div#1;n#div#0;n#div#1;n#div#0;n#div#0;n#header#0;n#section#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file leaf-file-name="template.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/views/home/mingxi/template.html">
+        <entry file="file://$PROJECT_DIR$/src/componment/printTicket/template.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="396">
-              <caret line="39" column="50" selection-start-line="39" selection-start-column="50" selection-end-line="39" selection-end-column="50" />
+            <state relative-caret-position="132">
+              <caret line="6" column="13" selection-start-line="0" selection-start-column="0" selection-end-line="14" selection-end-column="6" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index2323.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/index2323.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="198">
+              <caret line="9" column="6" selection-start-line="9" selection-start-column="6" selection-end-line="9" selection-end-column="6" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="style.css" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/componment/printTicket/style.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="220">
+              <caret line="10" column="18" selection-start-line="0" selection-start-column="0" selection-end-line="12" selection-end-column="1" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/componment/printTicket/index.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="440">
+              <caret line="20" column="0" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/componment/side/index.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="550">
+              <caret line="25" column="0" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
               <folding>
-                <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#header#0;n#section#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#div#0;n#header#0;n#section#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#button#0;n#div#3;n#div#2;n#div#1;n#div#0;n#div#1;n#div#0;n#div#0;n#header#0;n#section#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#button#1;n#div#3;n#div#2;n#div#1;n#div#0;n#div#1;n#div#0;n#div#0;n#header#0;n#section#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#button#2;n#div#3;n#div#2;n#div#1;n#div#0;n#div#1;n#div#0;n#div#0;n#header#0;n#section#0;n#!!top" expanded="true" />
+                <element signature="n#!!doc" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file leaf-file-name="index.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/views/fee/feedan/index.js">
+        <entry file="file://$PROJECT_DIR$/src/views/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="345">
-              <caret line="90" column="56" selection-start-line="90" selection-start-column="56" selection-end-line="90" selection-end-column="56" />
+            <state relative-caret-position="675">
+              <caret line="85" column="29" selection-start-line="85" selection-start-column="29" selection-end-line="85" selection-end-column="29" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/views/origin/jinhuo/index.js">
+      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="559">
-              <caret line="221" column="44" selection-start-line="215" selection-start-column="15" selection-end-line="221" selection-end-column="44" />
+            <state relative-caret-position="138">
+              <caret line="34" column="2" selection-start-line="34" selection-start-column="2" selection-end-line="37" selection-end-column="3" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/views/kehu/jiekuan/index.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="499">
-              <caret line="158" column="41" selection-start-line="158" selection-start-column="41" selection-end-line="158" selection-end-column="41" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="index.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/views/supply/result/index.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="499">
-              <caret line="91" column="33" selection-start-line="91" selection-start-column="33" selection-end-line="91" selection-end-column="33" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="template.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/views/supply/zhuanzhang/template.html">
+      <file leaf-file-name="app.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/views/app.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="0">
               <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="index.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/views/supply/zhuanzhang/index.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="521">
-              <caret line="87" column="7" selection-start-line="87" selection-start-column="7" selection-end-line="87" selection-end-column="7" />
               <folding />
             </state>
           </provider>
@@ -154,9 +145,10 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="package_json" />
         <option value="HTML File" />
         <option value="JavaScript File" />
-        <option value="package_json" />
+        <option value="CSS File" />
       </list>
     </option>
   </component>
@@ -166,9 +158,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/views/app.html" />
-        <option value="$PROJECT_DIR$/src/views/index.html" />
-        <option value="$PROJECT_DIR$/src/router.js" />
         <option value="$PROJECT_DIR$/src/componment/pagination/index.js" />
         <option value="$PROJECT_DIR$/src/views/home/shangpingoption/template.html" />
         <option value="$PROJECT_DIR$/src/componment/dropdown/template.html" />
@@ -182,13 +171,10 @@
         <option value="$PROJECT_DIR$/src/views/fee/feeoption/template.html" />
         <option value="$PROJECT_DIR$/src/views/fee/feemingxi/template.html" />
         <option value="$PROJECT_DIR$/src/views/fee/feemingxi/index.js" />
-        <option value="$PROJECT_DIR$/src/views/index.js" />
         <option value="$PROJECT_DIR$/src/views/app.js" />
         <option value="$PROJECT_DIR$/src/views/kehu/jiekuan/template.html" />
         <option value="$PROJECT_DIR$/src/views/kehu/qianchaxun/index.js" />
         <option value="$PROJECT_DIR$/src/views/kehu/qianchaxun/template.html" />
-        <option value="$PROJECT_DIR$/index.html" />
-        <option value="$PROJECT_DIR$/src/componment/side/template.html" />
         <option value="$PROJECT_DIR$/src/views/kehu/huangkuan/template.html" />
         <option value="$PROJECT_DIR$/src/views/home/chaxun/template.html" />
         <option value="$PROJECT_DIR$/src/views/fee/feedan/template.html" />
@@ -198,7 +184,6 @@
         <option value="$PROJECT_DIR$/src/views/origin/baosun/template.html" />
         <option value="$PROJECT_DIR$/src/views/origin/baosun/index.js" />
         <option value="$PROJECT_DIR$/src/views/supply/result/template.html" />
-        <option value="$PROJECT_DIR$/src/views/home/xiadan/index.js" />
         <option value="$PROJECT_DIR$/src/G/package.json" />
         <option value="$PROJECT_DIR$/src/views/home/chaxun/index.js" />
         <option value="$PROJECT_DIR$/src/G/common.js" />
@@ -214,6 +199,16 @@
         <option value="$PROJECT_DIR$/src/views/supply/result/index.js" />
         <option value="$PROJECT_DIR$/src/views/home/mingxi/template.html" />
         <option value="$PROJECT_DIR$/src/views/home/xiadan/template.html" />
+        <option value="$PROJECT_DIR$/index.html" />
+        <option value="$PROJECT_DIR$/src/views/home/xiadan/index.js" />
+        <option value="$PROJECT_DIR$/src/componment/side/template.html" />
+        <option value="$PROJECT_DIR$/src/views/index.js" />
+        <option value="$PROJECT_DIR$/src/views/index.html" />
+        <option value="$PROJECT_DIR$/src/componment/printTicket/index.js" />
+        <option value="$PROJECT_DIR$/src/componment/side/index.js" />
+        <option value="$PROJECT_DIR$/src/componment/printTicket/style.css" />
+        <option value="$PROJECT_DIR$/src/componment/printTicket/template.html" />
+        <option value="$PROJECT_DIR$/index2323.html" />
       </list>
     </option>
   </component>
@@ -568,6 +563,10 @@
               <option name="myItemId" value="componment" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="side" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -587,7 +586,25 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="datepicker" />
+              <option name="myItemId" value="printTicket" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="github" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="github" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="componment" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -607,6 +624,7 @@
     <property name="nodejs.mocha.mocha_node_package_dir" value="E:\收银10-22\node_modules\mocha" />
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="js-jscs-nodeInterpreter" value="C:\Program Files\nodejs\node.exe" />
+    <property name="list.type.of.created.stylesheet" value="CSS" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -693,12 +711,12 @@
       <workItem from="1477884853008" duration="10958000" />
       <workItem from="1478067987139" duration="8861000" />
       <workItem from="1478137323669" duration="15499000" />
-      <workItem from="1478222721327" duration="16139000" />
+      <workItem from="1478222721327" duration="20095000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="115357000" />
+    <option name="totallyTimeSpent" value="119313000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -766,62 +784,10 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/componment/pagination/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="660">
-          <caret line="32" column="28" selection-start-line="32" selection-start-column="28" selection-end-line="32" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/assets/style.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/componment/dropdown/template.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="66">
-          <caret line="3" column="56" selection-start-line="3" selection-start-column="56" selection-end-line="3" selection-end-column="56" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/componment/dropdown/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="310">
-          <caret line="24" column="24" selection-start-line="24" selection-start-column="24" selection-end-line="24" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/webpack.config.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="288">
-          <caret line="29" column="15" selection-start-line="29" selection-start-column="9" selection-end-line="29" selection-end-column="15" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/views/fee/feeoption/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="442">
-          <caret line="82" column="10" selection-start-line="82" selection-start-column="10" selection-end-line="82" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/views/fee/feeoption/template.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="242">
           <caret line="53" column="41" selection-start-line="51" selection-start-column="40" selection-end-line="53" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/views/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="220">
-          <caret line="58" column="7" selection-start-line="58" selection-start-column="7" selection-end-line="58" selection-end-column="7" />
-          <folding>
-            <element signature="e#125#156#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -894,31 +860,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/views/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="59">
-          <caret line="3" column="33" selection-start-line="3" selection-start-column="33" selection-end-line="3" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/componment/side/template.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="44">
-          <caret line="2" column="43" selection-start-line="2" selection-start-column="43" selection-end-line="2" selection-end-column="43" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/main.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="226">
-          <caret line="26" column="95" selection-start-line="26" selection-start-column="95" selection-end-line="26" selection-end-column="95" />
         </state>
       </provider>
     </entry>
@@ -1041,14 +986,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/views/home/xiadan/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="309">
-          <caret line="260" column="24" selection-start-line="0" selection-start-column="0" selection-end-line="290" selection-end-column="1" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/views/home/chaxun/index.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="169">
@@ -1086,16 +1023,6 @@
         <state relative-caret-position="499">
           <caret line="158" column="41" selection-start-line="158" selection-start-column="41" selection-end-line="158" selection-end-column="41" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/views/home/mingxi/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="295">
-          <caret line="209" column="31" selection-start-line="209" selection-start-column="31" selection-end-line="209" selection-end-column="31" />
-          <folding>
-            <element signature="e#82#104#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1160,22 +1087,125 @@
         <state relative-caret-position="396">
           <caret line="39" column="50" selection-start-line="39" selection-start-column="50" selection-end-line="39" selection-end-column="50" />
           <folding>
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#header#0;n#section#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#div#0;n#header#0;n#section#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#button#0;n#div#3;n#div#2;n#div#1;n#div#0;n#div#1;n#div#0;n#div#0;n#header#0;n#section#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#button#1;n#div#3;n#div#2;n#div#1;n#div#0;n#div#1;n#div#0;n#div#0;n#header#0;n#section#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#button#2;n#div#3;n#div#2;n#div#1;n#div#0;n#div#1;n#div#0;n#div#0;n#header#0;n#section#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#header#0;n#section#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#div#0;n#header#0;n#section#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#button#0;n#div#3;n#div#2;n#div#1;n#div#0;n#div#1;n#div#0;n#div#0;n#header#0;n#section#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#button#1;n#div#3;n#div#2;n#div#1;n#div#0;n#div#1;n#div#0;n#div#0;n#header#0;n#section#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#button#2;n#div#3;n#div#2;n#div#1;n#div#0;n#div#1;n#div#0;n#div#0;n#header#0;n#section#0;n#!!top" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/views/home/xiadan/template.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="600">
-          <caret line="240" column="67" selection-start-line="240" selection-start-column="67" selection-end-line="240" selection-end-column="67" />
+        <state relative-caret-position="732">
+          <caret line="258" column="27" selection-start-line="258" selection-start-column="17" selection-end-line="258" selection-end-column="27" />
           <folding>
             <element signature="n#style#0;n#button#1;n#div#2;n#div#4;n#div#1;n#div#0;n#div#1;n#div#0;n#div#0;n#header#0;n#section#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#section#0;n#!!top" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/views/home/mingxi/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="295">
+          <caret line="209" column="31" selection-start-line="209" selection-start-column="31" selection-end-line="209" selection-end-column="31" />
+          <folding>
+            <element signature="e#82#104#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/views/home/xiadan/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="528">
+          <caret line="219" column="18" selection-start-line="219" selection-start-column="18" selection-end-line="219" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/views/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="675">
+          <caret line="85" column="29" selection-start-line="85" selection-start-column="29" selection-end-line="85" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/views/app.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/componment/side/template.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="32" selection-start-line="0" selection-start-column="32" selection-end-line="0" selection-end-column="32" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/componment/side/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="550">
+          <caret line="25" column="0" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/componment/printTicket/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="440">
+          <caret line="20" column="0" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/componment/printTicket/template.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="132">
+          <caret line="6" column="13" selection-start-line="0" selection-start-column="0" selection-end-line="14" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/componment/printTicket/style.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="220">
+          <caret line="10" column="18" selection-start-line="0" selection-start-column="0" selection-end-line="12" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/views/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="638">
+          <caret line="29" column="61" selection-start-line="29" selection-start-column="61" selection-end-line="29" selection-end-column="61" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="138">
+          <caret line="34" column="2" selection-start-line="34" selection-start-column="2" selection-end-line="37" selection-end-column="3" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index2323.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="198">
+          <caret line="9" column="6" selection-start-line="9" selection-start-column="6" selection-end-line="9" selection-end-column="6" />
+          <folding />
         </state>
       </provider>
     </entry>

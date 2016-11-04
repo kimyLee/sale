@@ -220,6 +220,11 @@ export default {
         correct(){
 
         },
+        print(){
+
+            window.print();
+         
+        },
         inMoney(){
             var self = this;
             if(self.appearFee===''||isNaN(self.appearFee)){
@@ -281,8 +286,7 @@ export default {
             })
         }
     },
-    ready (){
-    },
+
     components : {
         datepicker,
         dropdown

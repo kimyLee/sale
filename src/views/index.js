@@ -83,7 +83,7 @@ export default {
 
         result:result,
         supplyoption:supplyoption,
-        zhuanzhang:zhuanzhang,
+        zhuanzhang:zhuanzhang
 
 
 
